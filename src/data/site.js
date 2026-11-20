@@ -8,7 +8,7 @@ export const site = {
   phone: '+94 77 000 0000',
   phoneHref: 'tel:+94770000000',
   whatsapp: '94770000000',
-  email: 'hello@jdbusinessconsultancy.lk',
+  email: 'hello@jdbusinessconsultancy.com',
   address: 'No. 00, Main Street, Colombo 00, Sri Lanka',
   hours: 'Mon – Fri · 8:30 AM – 5:30 PM',
   socials: {
