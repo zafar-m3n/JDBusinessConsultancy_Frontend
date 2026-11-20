@@ -1,0 +1,186 @@
+import { Building2, Calculator, Landmark, Scale, Megaphone, Compass } from 'lucide-react';
+
+export const services = [
+  {
+    slug: 'business-registration',
+    title: 'Business Registration',
+    icon: Building2,
+    short: 'Private Limited, sole proprietorship and partnership registration, done properly from day one.',
+    statement: 'Your company, registered correctly and quickly, with no hidden fees.',
+    intro:
+      'We take care of the whole registration process: choosing and reserving a name, preparing every form, filing with the Registrar of Companies and delivering your certificate. You bring your NIC; we handle the rest.',
+    includes: [
+      'Company name search and reservation',
+      'Preparation of all incorporation forms',
+      'Standard Articles of Association',
+      'Filing with the Registrar of Companies (ROC)',
+      'Certificate of Incorporation',
+      'Company secretary service (selected packages)',
+    ],
+    audience: ['First-time founders', 'Sole proprietors moving to Pvt Ltd', 'Foreign investors entering Sri Lanka', 'Partnerships formalising their business'],
+    timeline: '7 – 14 working days',
+    startingFrom: 'LKR 35,000',
+    process: [
+      { title: 'Name your company', text: 'We check availability and reserve your preferred name.' },
+      { title: 'Share your documents', text: 'Usually just NIC copies and a few details about directors and shareholders.' },
+      { title: 'We file with the ROC', text: 'Every form is prepared, checked and submitted for you.' },
+      { title: 'Receive your certificate', text: 'Your Certificate of Incorporation, ready to start trading.' },
+    ],
+    faqs: [
+      { q: 'How long does registration take?', a: 'Typically 7 to 14 working days from the time we receive complete documents.' },
+      { q: 'What documents do I need?', a: 'For most companies, NIC copies of directors and shareholders plus basic contact and address details. We send you a simple checklist.' },
+    ],
+  },
+  {
+    slug: 'bookkeeping-accounting',
+    title: 'Bookkeeping & Accounting',
+    icon: Calculator,
+    short: 'Clean, up-to-date books so you always know where your business stands.',
+    statement: 'Clear numbers, every month, without the paperwork piling up.',
+    intro:
+      'You collect your invoices, bills and receipts. We record every transaction, reconcile your accounts and prepare monthly reports. We can work on-site or remotely, whichever suits you.',
+    includes: [
+      'Recording sales, purchases, payments and deposits',
+      'Bank reconciliations',
+      'Monthly management accounts',
+      'Accounts payable and receivable tracking',
+      'Year-end financial statements support',
+      'On-site or remote service',
+    ],
+    audience: ['Startups without an in-house accountant', 'Growing SMEs', 'Owners who want monthly visibility', 'Businesses preparing for audit'],
+    timeline: 'Monthly, ongoing',
+    startingFrom: 'On request',
+    process: [
+      { title: 'Review', text: 'We look at your current records and agree what you need.' },
+      { title: 'Set up', text: 'A simple system for sending us documents each month.' },
+      { title: 'Record & reconcile', text: 'We keep the books accurate and up to date.' },
+      { title: 'Report', text: 'Monthly reports you can actually read and act on.' },
+    ],
+    faqs: [
+      { q: 'Can you work with my existing accounting software?', a: 'Yes. We work with most common accounting tools, or we can recommend one that fits your business.' },
+      { q: 'Do I need to send documents every month?', a: 'A monthly rhythm works best, and we make it easy with a simple shared folder or WhatsApp.' },
+    ],
+  },
+  {
+    slug: 'tax-financial-consulting',
+    title: 'Tax & Financial Consulting',
+    icon: Landmark,
+    short: 'Tax planning and compliance that keeps you on the right side of the IRD and saves where it can.',
+    statement: 'Stay compliant, and keep more of what you earn.',
+    intro:
+      'Sri Lankan tax rules change often. We help individuals and companies plan ahead, claim the allowances and concessions they are entitled to, and file accurately and on time.',
+    includes: [
+      'TIN and VAT registration',
+      'Corporate and personal income tax planning',
+      'Tax return preparation and filing',
+      'Advice on allowances and concessions',
+      'Financial planning and cash-flow advice',
+      'Support with IRD correspondence',
+    ],
+    audience: ['Newly registered companies', 'Self-employed professionals', 'SMEs facing VAT thresholds', 'Owners planning investments'],
+    timeline: 'Per filing period',
+    startingFrom: 'On request',
+    process: [
+      { title: 'Assess', text: 'We review your income, structure and obligations.' },
+      { title: 'Plan', text: 'We identify savings and set out a compliance calendar.' },
+      { title: 'File', text: 'Returns prepared, checked and filed on time.' },
+      { title: 'Advise', text: 'Ongoing advice as your business and the rules change.' },
+    ],
+    faqs: [
+      { q: 'When do I need to register for VAT?', a: 'It depends on your turnover and type of business. We will tell you exactly where you stand and when to register.' },
+      { q: 'Can you help with overdue returns?', a: 'Yes. We can help you bring your filings up to date and deal with the IRD.' },
+    ],
+  },
+  {
+    slug: 'legal-consulting',
+    title: 'Legal Consulting',
+    icon: Scale,
+    short: 'Corporate and commercial law guidance, trademarks and intellectual property protection.',
+    statement: 'Protect what you are building, from your name to your ideas.',
+    intro:
+      'From company law questions to protecting your brand, we give practical legal guidance in plain language, so you can make decisions with confidence.',
+    includes: [
+      'Corporate and commercial law advice',
+      'Trademark search and registration',
+      'Intellectual property protection',
+      'Company secretarial and statutory compliance',
+      'Shareholder and director changes',
+      'Regulatory guidance',
+    ],
+    audience: ['Founders protecting a brand', 'Companies changing ownership', 'Businesses entering regulated sectors', 'Creators protecting their work'],
+    timeline: 'Varies by matter',
+    startingFrom: 'On request',
+    process: [
+      { title: 'Consult', text: 'Tell us what you need and we will explain your options.' },
+      { title: 'Advise', text: 'Clear, written advice in plain language.' },
+      { title: 'Act', text: 'We prepare and file what is needed on your behalf.' },
+      { title: 'Protect', text: 'Ongoing support to keep you compliant.' },
+    ],
+    faqs: [
+      { q: 'How long does trademark registration take?', a: 'The process in Sri Lanka can take several months. We handle the search, filing and follow-up for you.' },
+      { q: 'Do you represent clients in court?', a: 'Our focus is advisory and corporate work. Where litigation is needed, we refer you to trusted partners.' },
+    ],
+  },
+  {
+    slug: 'digital-marketing',
+    title: 'Digital Marketing',
+    icon: Megaphone,
+    short: 'Social media content, strategy and online advertising that brings in real customers.',
+    statement: 'Be seen by the right people, consistently.',
+    intro:
+      'A registered business still needs customers. We plan and create social media content, manage your pages and run targeted online ads, with clear monthly reporting.',
+    includes: [
+      'Social media strategy',
+      'Designed posts and short-form video',
+      'Page management (Facebook, Instagram, LinkedIn)',
+      'Online advertising campaigns',
+      'Monthly content calendar',
+      'Performance reporting',
+    ],
+    audience: ['New businesses launching', 'SMEs with inactive pages', 'Service businesses needing leads', 'Brands entering new markets'],
+    timeline: 'Monthly, ongoing',
+    startingFrom: 'On request',
+    process: [
+      { title: 'Discover', text: 'We learn your business, audience and goals.' },
+      { title: 'Plan', text: 'A monthly content calendar for your approval.' },
+      { title: 'Create & publish', text: 'Posts, reels and ads produced and scheduled.' },
+      { title: 'Measure', text: 'Monthly reports on reach, engagement and growth.' },
+    ],
+    faqs: [
+      { q: 'Is the ad budget included?', a: 'No. Ad spend is paid directly to the platform and agreed with you separately.' },
+      { q: 'Do I approve content before it goes live?', a: 'Always. You approve the monthly calendar before anything is produced.' },
+    ],
+  },
+  {
+    slug: 'strategy-advisory',
+    title: 'Strategy & Business Advisory',
+    icon: Compass,
+    short: 'Growth strategy, market research, feasibility studies and practical training for your team.',
+    statement: 'A clear plan for where your business goes next.',
+    intro:
+      'We help owners step back and plan: understanding the market, testing new ideas, writing business plans and building the skills of the people who will deliver them.',
+    includes: [
+      'Growth strategy and business planning',
+      'Market research and market entry',
+      'Feasibility studies',
+      'Financial and KPI analysis',
+      'Business model review',
+      'Corporate training and workshops',
+    ],
+    audience: ['Owners planning expansion', 'Startups seeking investment', 'Companies entering new markets', 'Teams that need upskilling'],
+    timeline: 'Project-based',
+    startingFrom: 'On request',
+    process: [
+      { title: 'Diagnose', text: 'An honest look at performance, position and challenges.' },
+      { title: 'Research', text: 'Market, customer and financial analysis.' },
+      { title: 'Plan', text: 'A practical strategy with clear priorities.' },
+      { title: 'Enable', text: 'Training and support to put the plan into action.' },
+    ],
+    faqs: [
+      { q: 'Do you prepare business plans for bank loans?', a: 'Yes. We prepare business plans and feasibility studies suitable for banks and investors.' },
+      { q: 'Can training be customised?', a: 'Yes. Workshops are tailored to your team, industry and goals.' },
+    ],
+  },
+];
+
+export const getService = slug => services.find(s => s.slug === slug);

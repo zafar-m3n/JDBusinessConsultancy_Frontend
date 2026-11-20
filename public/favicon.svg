@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="645 460 305 427" role="img" aria-label="JD">
+  <defs>
+    <linearGradient id="jd-d" x1="0" y1="472" x2="0" y2="748" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8A6A2F"/>
+      <stop offset="0.45" stop-color="#E2C893"/>
+      <stop offset="1" stop-color="#C9A45C"/>
+    </linearGradient>
+    <linearGradient id="jd-j" x1="0" y1="598" x2="0" y2="875" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8A6A2F"/>
+      <stop offset="0.5" stop-color="#E2C893"/>
+      <stop offset="1" stop-color="#C9A45C"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#jd-d)" fill-rule="evenodd" d="M800 472H880Q938 472 938 530V690Q938 748 880 748H800ZM853 520V697H866Q882 697 882 681V536Q882 520 866 520Z"/>
+  <path fill="url(#jd-j)" d="M735 598H790V820Q790 875 735 875H712Q657 875 657 820V743H712V808Q712 824 723.5 824Q735 824 735 808Z"/>
+</svg>

@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink-950: #0f0d0d;
+  --color-ink-900: #1c1919;
+  --color-ink-800: #262222;
+  --color-ink-700: #302b2b;
+  --color-line: #353030;
+  --color-silver-400: #8a8686;
+  --color-silver-200: #c9c6c6;
+  --color-silver-50: #f2f1ef;
+  --color-gold-700: #7a5c26;
+  --color-gold-500: #c9a45c;
+  --color-gold-300: #e2c893;
+  --color-gold-100: #f3e2b3;
+
+  --font-display: "Jost", "Century Gothic", ui-sans-serif, sans-serif;
+  --font-sans: "Jost", "Century Gothic", ui-sans-serif, sans-serif;
+  --font-script: "Pinyon Script", cursive;
+
+  --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Global light position (viewport px), written every frame by LightProvider */
+:root {
+  --lx: 18vw;
+  --ly: 12vh;
+  color-scheme: dark;
+}
+
+html {
+  background: var(--color-ink-950);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink-950);
+  color: var(--color-silver-200);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0.01em; /* a touch of tracking helps Jost at body sizes */
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Film grain */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--color-gold-500);
+  color: var(--color-ink-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-300);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Justified body copy. Excluded (left as they are):
+   - centred text and display-styled lines, and the footer (outside <main>)
+   - narrow measures, which justify badly and leave wide gaps between words: cards (.rim),
+     list items, 4-column sidebars and paragraphs capped at max-w-xs/sm/md.
+   Single-line paragraphs look unchanged because the last line of justified text stays left-aligned. */
+main p:not(
+    .text-center,
+    .text-center p,
+    [class*="font-display"],
+    :is(.rim, li, [class*="col-span-4"]) p,
+    [class*="max-w-xs"],
+    [class*="max-w-sm"],
+    [class*="max-w-md"]
+  ) {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--color-silver-50);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+@layer components {
+  /* ---------- Gold as lit metal ---------- */
+  /* Background-clipped text paints only inside the element box. Extra padding (cancelled by
+     negative margin) keeps descenders and script swashes from being cut off. */
+  .gold,
+  .silver {
+    padding-block: 0.12em 0.2em;
+    margin-block: -0.12em -0.2em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .gold {
+    color: var(--color-gold-500); /* fallback */
+    background-image:
+      radial-gradient(circle 260px at var(--lx) var(--ly), rgba(255, 253, 246, 1), rgba(246, 232, 194, 0.7) 30%, rgba(243, 226, 179, 0) 70%),
+      linear-gradient(180deg, #ecd6a0 0%, #c9a45c 30%, #86662c 52%, #b8914b 68%, #e2c893 86%, #9c7836 100%);
+    background-attachment: fixed, scroll;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.55)) drop-shadow(0 0 18px rgba(201, 164, 92, 0.12));
+  }
+
+  .gold-glint {
+    background-image:
+      linear-gradient(105deg, transparent 42%, rgba(255, 253, 245, 0.85) 50%, transparent 58%),
+      radial-gradient(circle 260px at var(--lx) var(--ly), rgba(255, 253, 246, 1), rgba(246, 232, 194, 0.7) 30%, rgba(243, 226, 179, 0) 70%),
+      linear-gradient(180deg, #ecd6a0 0%, #c9a45c 30%, #86662c 52%, #b8914b 68%, #e2c893 86%, #9c7836 100%);
+    background-attachment: scroll, fixed, scroll;
+    background-size: 300% 100%, auto, auto;
+    background-repeat: no-repeat;
+    animation: glint 7s var(--ease-lux) infinite;
+  }
+
+  /* Polished silver (logo lettering) */
+  .silver {
+    color: var(--color-silver-50);
+    background-image:
+      radial-gradient(circle 300px at var(--lx) var(--ly), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 65%),
+      linear-gradient(180deg, #f6f5f3 0%, #cfcccc 45%, #8f8b8b 70%, #d8d6d4 100%);
+    background-attachment: fixed, scroll;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ---------- Rim-lit border: brightest on the side facing the light ---------- */
+  .rim {
+    position: relative;
+    isolation: isolate;
+  }
+  .rim::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background:
+      radial-gradient(circle 340px at var(--lx) var(--ly), rgba(243, 226, 179, 0.95), rgba(201, 164, 92, 0.35) 40%, rgba(201, 164, 92, 0) 75%) fixed,
+      linear-gradient(var(--color-line), var(--color-line));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+  }
+  /* soft inner sheen */
+  .rim::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle 420px at var(--lx) var(--ly), rgba(226, 200, 147, 0.07), transparent 70%) fixed;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Gold hairline */
+  .hairline {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-line) 10%, var(--color-line) 90%, transparent);
+  }
+  .hairline-gold {
+    height: 1px;
+    background:
+      radial-gradient(circle 400px at var(--lx) var(--ly), rgba(243, 226, 179, 0.9), transparent 70%) fixed,
+      linear-gradient(90deg, transparent, rgba(201, 164, 92, 0.35), transparent);
+  }
+
+  /* Outlined numerals */
+  .numeral {
+    font-family: var(--font-display);
+    font-weight: 300;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(201, 164, 92, 0.45);
+  }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--color-gold-300);
+  }
+
+  .container-x {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  @media (max-width: 640px) {
+    .container-x { padding-inline: 1rem; }
+  }
+
+  .section-y {
+    padding-block: 7.5rem;
+  }
+  @media (max-width: 768px) {
+    .section-y { padding-block: 4.5rem; }
+  }
+}
+
+@keyframes glint {
+  0%, 55% { background-position: 120% 0, 0 0, 0 0; }
+  85%, 100% { background-position: -20% 0, 0 0, 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .gold-glint { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
