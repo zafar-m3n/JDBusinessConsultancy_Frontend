@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/ui/icons';
-import { whatsappLink } from '@/data/site';
+import { site, whatsappLink } from '@/data/site';
 
 /* ---------- Gold / silver text ---------- */
 export function Gold({ as: Tag = 'span', glint = false, className = '', children }) {
@@ -103,15 +104,26 @@ export function SectionHeading({ title, gold, lead, className = '' }) {
   );
 }
 
-/* ---------- Page meta (React 19 hoists these into <head>) ---------- */
-export function Meta({ title, description }) {
-  const full = title ? `${title} · JD Business Consultancy` : 'JD Business Consultancy · Business Consultants in Sri Lanka';
-  return (
-    <>
-      <title>{full}</title>
-      {description && <meta name="description" content={description} />}
-      <meta property="og:title" content={full} />
-      {description && <meta property="og:description" content={description} />}
-    </>
-  );
+/* ---------- Page meta ----------
+   index.html holds the site-wide SEO tags. Each page updates those same tags in place
+   (rather than adding duplicates) so the title, description, canonical URL and social
+   URL always describe the current page. */
+const setAttr = (selector, attr, value) => document.head.querySelector(selector)?.setAttribute(attr, value);
+
+export function Meta({ title, description = site.description, noindex = false }) {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const full = title ? `${title} · ${site.name}` : `${site.name} · Business Consultants in Sri Lanka`;
+    const url = site.url + pathname;
+    document.title = full;
+    setAttr('meta[name="description"]', 'content', description);
+    setAttr('meta[name="robots"]', 'content', noindex ? 'noindex, follow' : 'index, follow');
+    setAttr('link[rel="canonical"]', 'href', url);
+    setAttr('meta[property="og:url"]', 'content', url);
+    setAttr('meta[property="og:title"]', 'content', full);
+    setAttr('meta[property="og:description"]', 'content', description);
+    setAttr('meta[name="twitter:title"]', 'content', full);
+    setAttr('meta[name="twitter:description"]', 'content', description);
+  }, [title, description, noindex, pathname]);
+  return null;
 }

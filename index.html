@@ -2,17 +2,91 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0F0D0D" />
-    <meta property="og:site_name" content="JD Business Consultancy" />
+
+    <!-- Primary SEO (site-wide defaults; each page updates title, description and canonical on load) -->
+    <title>JD Business Consultancy · Business Consultants in Sri Lanka</title>
+    <meta
+      name="description"
+      content="JD Business Consultancy helps Sri Lankan startups and SMEs with company registration, bookkeeping, tax, legal, digital marketing and growth strategy, all under one roof."
+    />
+    <link rel="canonical" href="https://jdbusinessconsultancy.com/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="JD Business Consultancy" />
+    <meta name="theme-color" content="#0f0d0d" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- Icons and install metadata -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph (link previews on WhatsApp, Facebook, LinkedIn) -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="JD Business Consultancy" />
+    <meta property="og:locale" content="en_LK" />
+    <meta property="og:url" content="https://jdbusinessconsultancy.com/" />
+    <meta property="og:title" content="JD Business Consultancy · Business Consultants in Sri Lanka" />
+    <meta
+      property="og:description"
+      content="Company registration, bookkeeping, tax, legal, marketing and strategy for Sri Lankan startups and SMEs. Built right. From day one."
+    />
+    <meta property="og:image" content="https://jdbusinessconsultancy.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="JD Business Consultancy: gold JD monogram with the tagline Built right. From day one." />
+
+    <!-- X / Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JD Business Consultancy · Business Consultants in Sri Lanka" />
+    <meta
+      name="twitter:description"
+      content="Company registration, bookkeeping, tax, legal, marketing and strategy for Sri Lankan startups and SMEs."
+    />
+    <meta name="twitter:image" content="https://jdbusinessconsultancy.com/og-image.png" />
+    <meta name="twitter:image:alt" content="JD Business Consultancy: gold JD monogram with the tagline Built right. From day one." />
+
+    <!-- Structured data. Phone, address and opening hours are left out until the real details are confirmed. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "@id": "https://jdbusinessconsultancy.com/#organization",
+        "name": "JD Business Consultancy",
+        "url": "https://jdbusinessconsultancy.com/",
+        "logo": "https://jdbusinessconsultancy.com/icon-512.png",
+        "image": "https://jdbusinessconsultancy.com/og-image.png",
+        "description": "Business consultancy for Sri Lankan startups and SMEs: company registration, bookkeeping, tax, legal, digital marketing and growth strategy.",
+        "slogan": "Built right. From day one.",
+        "founder": { "@type": "Person", "name": "Jony Dewson", "jobTitle": "Founder & Principal Consultant" },
+        "areaServed": { "@type": "Country", "name": "Sri Lanka" },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Registration", "url": "https://jdbusinessconsultancy.com/services/business-registration" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bookkeeping & Accounting", "url": "https://jdbusinessconsultancy.com/services/bookkeeping-accounting" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tax & Financial Consulting", "url": "https://jdbusinessconsultancy.com/services/tax-financial-consulting" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Legal Consulting", "url": "https://jdbusinessconsultancy.com/services/legal-consulting" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Marketing", "url": "https://jdbusinessconsultancy.com/services/digital-marketing" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Strategy & Business Advisory", "url": "https://jdbusinessconsultancy.com/services/strategy-advisory" } }
+          ]
+        }
+      }
+    </script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet" />
-    <title>JD Business Consultancy</title>
   </head>
   <body>
+    <noscript>
+      <div style="padding: 2rem; font-family: Jost, sans-serif; color: #f2f1ef; background: #0f0d0d; text-align: center">
+        JD Business Consultancy needs JavaScript to display this website. Please enable JavaScript and reload the page.
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

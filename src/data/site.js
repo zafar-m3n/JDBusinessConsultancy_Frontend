@@ -2,6 +2,7 @@
 export const site = {
   name: 'JD Business Consultancy',
   shortName: 'JD',
+  url: 'https://jdbusinessconsultancy.com',
   tagline: 'Business consultancy for Sri Lankan startups and SMEs.',
   description:
     'JD Business Consultancy helps entrepreneurs register, run and grow their businesses in Sri Lanka, from company registration and bookkeeping to tax, legal and growth strategy.',
