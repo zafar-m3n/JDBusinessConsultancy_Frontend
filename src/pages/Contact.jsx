@@ -66,7 +66,7 @@ export default function Contact() {
 
   return (
     <>
-      <Meta title="Contact" description="Book a free consultation with JD Business Consultancy, or chat with us on WhatsApp." />
+      <Meta />
 
       <section className="relative overflow-hidden pt-40 pb-24 md:pt-48 md:pb-32">
         <div

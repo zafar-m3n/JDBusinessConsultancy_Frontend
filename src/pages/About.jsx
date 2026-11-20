@@ -10,10 +10,7 @@ import { chapters, founder, mission, team, values, vision } from '@/data/content
 export default function About() {
   return (
     <>
-      <Meta
-        title="About"
-        description="JD Business Consultancy was founded by Jony Dewson to give Sri Lankan entrepreneurs clear, honest business support."
-      />
+      <Meta />
       <PageHero
         title="People who care how"
         gold="your story goes."

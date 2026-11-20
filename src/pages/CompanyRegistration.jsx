@@ -17,10 +17,7 @@ export default function CompanyRegistration() {
 
   return (
     <>
-      <Meta
-        title="Company Registration in Sri Lanka"
-        description="Register your Private Limited company in Sri Lanka in 7–14 working days. Three clear packages, no hidden fees."
-      />
+      <Meta />
       <Hero />
       <Process />
       <Packages />

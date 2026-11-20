@@ -2,7 +2,7 @@
 export const site = {
   name: 'JD Business Consultancy',
   shortName: 'JD',
-  url: 'https://jdbusinessconsultancy.com',
+  url: import.meta.env.VITE_SITE_URL, // set in vite.config.js
   tagline: 'Business consultancy for Sri Lankan startups and SMEs.',
   description:
     'JD Business Consultancy helps entrepreneurs register, run and grow their businesses in Sri Lanka, from company registration and bookkeeping to tax, legal and growth strategy.',

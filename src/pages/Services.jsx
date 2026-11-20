@@ -19,10 +19,7 @@ export default function Services() {
 
   return (
     <>
-      <Meta
-        title="Services"
-        description="Business registration, bookkeeping, tax, legal consulting, digital marketing and strategy for Sri Lankan businesses."
-      />
+      <Meta />
       <PageHero
         title="Everything your business needs,"
         gold="under one roof."

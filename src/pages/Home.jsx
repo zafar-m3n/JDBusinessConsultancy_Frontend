@@ -12,12 +12,11 @@ import ArchPortrait from '@/components/shared/ArchPortrait';
 import PackageCards from '@/components/shared/PackageCards';
 import { services } from '@/data/services';
 import { faqCategories, founder } from '@/data/content';
-import { site } from '@/data/site';
 
 export default function Home() {
   return (
     <>
-      <Meta description={site.description} />
+      <Meta />
       <Hero />
       <Manifesto />
       <ServicesIndex />

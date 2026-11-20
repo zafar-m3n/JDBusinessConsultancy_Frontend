@@ -35,7 +35,7 @@ export default function FAQ() {
 
   return (
     <>
-      <Meta title="FAQ" description="Answers to common questions about company registration, accounting, tax, legal and marketing services." />
+      <Meta />
       <PageHero
         title="Questions,"
         gold="answered."

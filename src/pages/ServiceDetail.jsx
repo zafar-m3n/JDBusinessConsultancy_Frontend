@@ -17,7 +17,7 @@ export default function ServiceDetail() {
 
   return (
     <>
-      <Meta title={service.title} description={service.short} />
+      <Meta />
 
       {/* Header */}
       <section className="relative overflow-hidden pt-40 pb-16 md:pt-48 md:pb-24">

@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/ui/icons';
 import { site, whatsappLink } from '@/data/site';
+import { fullTitle, getSeo } from '@/data/seo';
 
 /* ---------- Gold / silver text ---------- */
 export function Gold({ as: Tag = 'span', glint = false, className = '', children }) {
@@ -105,16 +106,17 @@ export function SectionHeading({ title, gold, lead, className = '' }) {
 }
 
 /* ---------- Page meta ----------
-   index.html holds the site-wide SEO tags. Each page updates those same tags in place
-   (rather than adding duplicates) so the title, description, canonical URL and social
-   URL always describe the current page. */
+   Titles and descriptions live in src/data/seo.js. The build writes them into each route's
+   HTML file (scripts/prerender.js); this component keeps the head in sync as the visitor
+   navigates inside the app, updating the existing tags rather than adding duplicates. */
 const setAttr = (selector, attr, value) => document.head.querySelector(selector)?.setAttribute(attr, value);
 
-export function Meta({ title, description = site.description, noindex = false }) {
+export function Meta() {
   const { pathname } = useLocation();
   useEffect(() => {
-    const full = title ? `${title} · ${site.name}` : `${site.name} · Business Consultants in Sri Lanka`;
-    const url = site.url + pathname;
+    const { title, description, noindex } = getSeo(pathname);
+    const full = fullTitle(title);
+    const url = site.url + (pathname.length > 1 ? pathname.replace(/\/+$/, '') : '/');
     document.title = full;
     setAttr('meta[name="description"]', 'content', description);
     setAttr('meta[name="robots"]', 'content', noindex ? 'noindex, follow' : 'index, follow');
@@ -124,6 +126,6 @@ export function Meta({ title, description = site.description, noindex = false })
     setAttr('meta[property="og:description"]', 'content', description);
     setAttr('meta[name="twitter:title"]', 'content', full);
     setAttr('meta[name="twitter:description"]', 'content', description);
-  }, [title, description, noindex, pathname]);
+  }, [pathname]);
   return null;
 }

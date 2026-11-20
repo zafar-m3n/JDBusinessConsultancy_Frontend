@@ -36,7 +36,7 @@ export default function Legal({ kind }) {
   const doc = docs[kind];
   return (
     <>
-      <Meta title={doc.title} description={`${doc.title} for ${site.name}.`} />
+      <Meta />
       <PageHero title={doc.title} />
       <section className="border-t border-line">
         <div className="container-x grid gap-12 py-20 lg:grid-cols-12">
