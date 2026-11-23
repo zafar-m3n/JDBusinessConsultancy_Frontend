@@ -71,9 +71,12 @@ export default function Footer() {
         <div className="lg:col-span-3">
           <h3 className="eyebrow mb-5 !text-[0.68rem]">Contact</h3>
           <address className="space-y-2.5 not-italic text-silver-200">
-            <a href={site.phoneHref} className="block hover:text-gold-100">{site.phone}</a>
+            {site.phones.map(p => (
+              <a key={p.href} href={p.href} className="block hover:text-gold-100">
+                {p.display} <span className="text-silver-400">· {p.label}</span>
+              </a>
+            ))}
             <a href={`mailto:${site.email}`} className="block break-all hover:text-gold-100">{site.email}</a>
-            <p className="text-silver-400">{site.address}</p>
             <p className="text-silver-400">{site.hours}</p>
           </address>
           <WhatsAppButton className="mt-6 !px-4 !py-2 !text-sm" />

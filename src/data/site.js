@@ -1,4 +1,3 @@
-// PLACEHOLDER contact details — replace with the real ones before launch.
 export const site = {
   name: 'JD Business Consultancy',
   shortName: 'JD',
@@ -6,12 +5,14 @@ export const site = {
   tagline: 'Business consultancy for Sri Lankan startups and SMEs.',
   description:
     'JD Business Consultancy helps entrepreneurs register, run and grow their businesses in Sri Lanka, from company registration and bookkeeping to tax, legal and growth strategy.',
-  phone: '+94 77 000 0000',
-  phoneHref: 'tel:+94770000000',
-  whatsapp: '94770000000',
-  email: 'hello@jdbusinessconsultancy.com',
-  address: 'No. 00, Main Street, Colombo 00, Sri Lanka',
-  hours: 'Mon – Fri · 8:30 AM – 5:30 PM',
+  phones: [
+    { label: 'Sri Lanka', display: '+94 76 809 9608', href: 'tel:+94768099608' },
+    { label: 'Sweden', display: '+46 72 446 90 92', href: 'tel:+46724469092' },
+  ],
+  whatsapp: '94768099608', // Sri Lanka number, international format without "+"
+  email: 'jony@jdbusinessconsultancy.com',
+  hours: 'Mon – Fri · 8:30 AM – 5:30 PM (Sri Lanka time)',
+  // PLACEHOLDER: social profile links to be added
   socials: {
     facebook: '#',
     instagram: '#',

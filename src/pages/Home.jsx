@@ -95,7 +95,7 @@ function Hero() {
           transition={{ duration: 1, delay: 0.8, ease }}
           className="mx-auto mt-8 max-w-2xl text-lg text-silver-400 md:text-xl"
         >
-          Company registration, bookkeeping, tax, legal, marketing and strategy, handled by one team that treats
+          Company registration, bookkeeping, tax, legal, marketing and strategy, handled by one trusted advisor who treats
           your business like its own.
         </motion.p>
 
@@ -113,7 +113,7 @@ function Hero() {
       <div className="container-x relative pb-10">
         <div className="hairline mb-6" />
         <ul className="flex flex-col items-center gap-3 font-display text-sm text-silver-400 md:flex-row md:justify-center md:gap-10">
-          {['Registration in 7–14 working days', 'No hidden fees', 'Six services, one team'].map((f, i) => (
+          {['Registration in 7–14 working days', 'No hidden fees', 'Six services, one point of contact'].map((f, i) => (
             <motion.li
               key={f}
               initial={{ opacity: 0 }}
@@ -238,7 +238,7 @@ function ServicesIndex() {
     <section className="section-y relative border-t border-line">
       <div className="container-x">
         <div className="mb-16 flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <SectionHeading title="Six services." gold="One trusted team." />
+          <SectionHeading title="Six services." gold="One trusted advisor." />
           <Reveal>
             <Link to="/services" className="inline-flex items-center gap-2 text-gold-300 hover:text-gold-100">
               All services <ArrowUpRight className="size-4" />
@@ -335,7 +335,7 @@ function RegistrationStory() {
             </p>
             <div className="mt-10 flex items-end gap-3">
               <span className="text-sm text-silver-400">From</span>
-              <Gold className="font-display text-5xl">LKR 35,000</Gold>
+              <Gold className="font-display text-5xl">LKR 65,000</Gold>
             </div>
             <Button to="/company-registration" className="mt-10" arrow>See packages</Button>
           </div>
@@ -383,7 +383,6 @@ function WhyBento() {
                   <CountUp to={60} duration={2} />+
                 </span>
               </p>
-              {/* PLACEHOLDER figure */}
               <p className="mt-4 font-display text-2xl text-silver-50">Companies registered</p>
               <p className="mt-2 max-w-xs text-silver-400">Founders who trusted us with their first and most important step.</p>
             </div>
@@ -397,8 +396,8 @@ function WhyBento() {
             <p className="mt-3 text-silver-400">Working days to register your company.</p>
           </Reveal>
           <Reveal delay={0.1} className={`${tile} md:col-span-3 lg:col-span-3`}>
-            <p className="font-display text-3xl font-light text-silver-50">Qualified professionals.</p>
-            <p className="mt-3 text-silver-400">Accountants, legal and marketing specialists on one team.</p>
+            <p className="font-display text-3xl font-light text-silver-50">Qualified and experienced.</p>
+            <p className="mt-3 text-silver-400">An MBA and nearly ten years' experience behind every piece of advice.</p>
           </Reveal>
           <Reveal delay={0.15} className={`${tile} md:col-span-3 lg:col-span-4`}>
             <p className="font-display text-3xl font-light text-silver-50">One partner.</p>

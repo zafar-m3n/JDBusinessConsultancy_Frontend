@@ -23,7 +23,7 @@ export default function Services() {
       <PageHero
         title="Everything your business needs,"
         gold="under one roof."
-        lead="Six services, delivered by one team that already knows your business. Start with one, add the others as you grow."
+        lead="Six services, delivered by one advisor who already knows your business. Start with one, add the others as you grow."
         ghost="06"
       />
 

@@ -185,7 +185,8 @@ export default function Navbar() {
               </ul>
               <div className="mt-10 space-y-3 text-silver-400">
                 <Button to="/contact" className="w-full">Get a Free Consultation</Button>
-                <p className="pt-4 text-sm">{site.phone} · {site.email}</p>
+                <p className="pt-4 text-sm">{site.phones.map(p => p.display).join(' · ')}</p>
+                <p className="text-sm">{site.email}</p>
               </div>
             </div>
           </motion.div>

@@ -1,10 +1,10 @@
-// Team, packages, FAQs and company copy. Items marked PLACEHOLDER need real content.
+// Founder, packages, FAQs and company copy.
 
 export const founder = {
   name: 'Jony Dewson',
   role: 'Founder & Principal Consultant',
-  credentials: 'ACA, BSc (Accounting)', // PLACEHOLDER credentials
-  bio: 'Jony founded JD Business Consultancy to give Sri Lankan entrepreneurs the kind of clear, honest advice usually reserved for large companies. He works closely with every client, from first registration through to growth planning.', // PLACEHOLDER
+  credentials: "MBA · Bachelor's in Business Management · Nearly 10 years' experience",
+  bio: "Jony holds a Master of Business Administration and a bachelor's degree in business management, and has spent nearly ten years helping businesses get set up, stay compliant and grow. He founded JD Business Consultancy to give Sri Lankan entrepreneurs the kind of clear, honest advice usually reserved for large companies, and works with every client personally, from first registration through to growth planning.",
   note: [
     'Starting a business is exciting. The paperwork, the tax rules and the legal questions usually are not.',
     'I started JD Business Consultancy so founders could hand those things to people they trust, and get back to building. We keep our pricing clear, our advice plain and our promises realistic.',
@@ -12,31 +12,9 @@ export const founder = {
   ],
 };
 
-// PLACEHOLDER team members
-export const team = [
-  {
-    name: 'Team Member',
-    role: 'Senior Accountant',
-    credentials: 'Professional qualifications', // PLACEHOLDER
-    bio: 'Brings hands-on experience helping Sri Lankan startups and SMEs stay organised, compliant and ready to grow.', // PLACEHOLDER bio
-  },
-  {
-    name: 'Team Member',
-    role: 'Legal & Compliance Consultant',
-    credentials: 'Professional qualifications', // PLACEHOLDER
-    bio: 'Brings hands-on experience helping Sri Lankan startups and SMEs stay organised, compliant and ready to grow.', // PLACEHOLDER bio
-  },
-  {
-    name: 'Team Member',
-    role: 'Digital Marketing Lead',
-    credentials: 'Professional qualifications', // PLACEHOLDER
-    bio: 'Brings hands-on experience helping Sri Lankan startups and SMEs stay organised, compliant and ready to grow.', // PLACEHOLDER bio
-  },
-];
-
-export const vision = 'To be the most trusted partner for entrepreneurs building lasting businesses in Sri Lanka.'; // PLACEHOLDER
+export const vision = 'To be the most trusted partner for entrepreneurs building lasting businesses in Sri Lanka.';
 export const mission =
-  'To make starting, running and growing a business simple, with clear advice, honest pricing and people who care about the outcome.'; // PLACEHOLDER
+  'To make starting, running and growing a business simple, with clear advice, honest pricing and people who care about the outcome.';
 
 export const values = [
   { title: 'Integrity', text: 'Honest advice and clear pricing, even when it is not what you hoped to hear.' },
@@ -52,25 +30,17 @@ export const chapters = [
   { title: 'Where we are going', text: 'Growing alongside our clients, adding the services they ask for as their businesses grow.' },
 ];
 
-// PLACEHOLDER stats
-export const stats = [
-  { value: 60, suffix: '+', label: 'Companies registered' },
-  { value: 10, suffix: '+', label: 'Years of combined experience' },
-  { value: 6, suffix: '', label: 'Services under one roof' },
-  { value: 14, suffix: '', label: 'Days, maximum, to register' },
-];
-
-// PLACEHOLDER prices (government fees excluded)
+// Prices exclude government fees
 export const packages = [
   {
     name: 'Essential',
-    price: '35,000',
+    price: '65,000',
     blurb: 'Everything you need to get your company legally registered.',
     features: ['Name search & reservation', 'Incorporation forms prepared', 'Standard Articles of Association', 'Certificate of Incorporation'],
   },
   {
     name: 'Business',
-    price: '55,000',
+    price: '95,000',
     popular: true,
     blurb: 'Registered and ready to trade, with your first year of secretarial support.',
     features: [
@@ -83,7 +53,7 @@ export const packages = [
   },
   {
     name: 'Complete',
-    price: '85,000',
+    price: '125,000',
     blurb: 'A full launch: registration, tax, books and your first online presence.',
     features: [
       'Everything in Business',

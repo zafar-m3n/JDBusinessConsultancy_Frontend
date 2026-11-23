@@ -49,7 +49,7 @@
     <meta name="twitter:image" content="%VITE_SITE_URL%/og-image.png" />
     <meta name="twitter:image:alt" content="JD Business Consultancy: gold JD monogram with the tagline Built right. From day one." />
 
-    <!-- Structured data. Phone, address and opening hours are left out until the real details are confirmed. -->
+    <!-- Structured data for search engines -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -61,8 +61,20 @@
         "image": "%VITE_SITE_URL%/og-image.png",
         "description": "Business consultancy for Sri Lankan startups and SMEs: company registration, bookkeeping, tax, legal, digital marketing and growth strategy.",
         "slogan": "Built right. From day one.",
-        "founder": { "@type": "Person", "name": "Jony Dewson", "jobTitle": "Founder & Principal Consultant" },
+        "founder": { "@type": "Person", "name": "Jony Dewson", "jobTitle": "Founder & Principal Consultant", "hasCredential": ["Master of Business Administration", "Bachelor's degree in Business Management"] },
         "areaServed": { "@type": "Country", "name": "Sri Lanka" },
+        "email": "jony@jdbusinessconsultancy.com",
+        "telephone": "+94768099608",
+        "contactPoint": [
+          { "@type": "ContactPoint", "contactType": "customer service", "telephone": "+94768099608", "areaServed": "LK", "availableLanguage": "English" },
+          { "@type": "ContactPoint", "contactType": "customer service", "telephone": "+46724469092", "areaServed": "SE", "availableLanguage": "English" }
+        ],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:30",
+          "closes": "17:30"
+        },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Services",

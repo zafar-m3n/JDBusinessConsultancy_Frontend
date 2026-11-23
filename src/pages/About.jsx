@@ -1,11 +1,7 @@
-import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { X } from 'lucide-react';
 import { Gold, Meta, Reveal, SectionHeading } from '@/components/ui/primitives';
 import { ClosingCTA, PageHero } from '@/components/layout/Chrome';
-import { LinkedInIcon } from '@/components/ui/icons';
 import ArchPortrait from '@/components/shared/ArchPortrait';
-import { chapters, founder, mission, team, values, vision } from '@/data/content';
+import { chapters, founder, mission, values, vision } from '@/data/content';
 
 export default function About() {
   return (
@@ -20,7 +16,7 @@ export default function About() {
       <Chapters />
       <VisionMission />
       <Values />
-      <Team />
+      <Founder />
       <ClosingCTA />
     </>
   );
@@ -94,14 +90,11 @@ function Values() {
   );
 }
 
-function Team() {
-  const [open, setOpen] = useState(null);
+function Founder() {
   return (
     <section className="section-y border-t border-line">
       <div className="container-x">
-        <SectionHeading title="The people" gold="behind JD." className="mb-16" />
-
-        {/* Founder dossier */}
+        <SectionHeading title="The person" gold="behind JD." className="mb-16" />
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <Reveal className="mx-auto w-full max-w-sm lg:col-span-4">
             <ArchPortrait name={founder.name} />
@@ -111,76 +104,11 @@ function Team() {
               <Gold glint>{founder.name}</Gold>
             </Reveal>
             <Reveal as="p" delay={0.08} className="mt-4 font-display text-xl text-silver-50">{founder.role}</Reveal>
-            <Reveal as="p" delay={0.1} className="mt-2 text-sm text-silver-400">{founder.credentials}</Reveal>
+            <Reveal as="p" delay={0.1} className="mt-2 font-display text-sm tracking-wide text-gold-300">{founder.credentials}</Reveal>
             <Reveal as="p" delay={0.12} className="mt-8 max-w-xl text-lg text-silver-200">{founder.bio}</Reveal>
           </div>
         </div>
-
-        <div className="hairline my-20" />
-
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {team.map((m, i) => (
-            <Reveal as="li" key={i} delay={i * 0.08}>
-              <button
-                onClick={() => setOpen(m)}
-                className="group w-full text-left"
-                aria-label={`Read more about ${m.name}, ${m.role}`}
-              >
-                <div className="rim relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink-800">
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,#2a2525,#141212)]" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(226,200,147,0.22),transparent_55%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
-                  <svg viewBox="0 0 200 250" className="absolute inset-x-0 bottom-0 w-full text-ink-950/80" aria-hidden="true">
-                    <circle cx="100" cy="100" r="40" fill="currentColor" />
-                    <path d="M24 250c6-60 38-92 76-92s70 32 76 92z" fill="currentColor" />
-                  </svg>
-                  {/* PLACEHOLDER photo */}
-                </div>
-                <p className="mt-5 font-display text-xl text-silver-50 transition-colors group-hover:text-gold-100">{m.name}</p>
-                <p className="text-sm text-silver-400">{m.role}</p>
-              </button>
-            </Reveal>
-          ))}
-        </ul>
       </div>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            className="fixed inset-0 z-[55] grid place-items-center bg-ink-950/80 p-4 backdrop-blur-sm"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setOpen(null)}
-          >
-            <motion.div
-              role="dialog"
-              aria-modal="true"
-              aria-label={open.name}
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.96 }}
-              onClick={e => e.stopPropagation()}
-              className="relative w-full max-w-lg rounded-3xl border border-line bg-ink-900 p-10"
-            >
-              <button
-                onClick={() => setOpen(null)}
-                aria-label="Close"
-                autoFocus
-                className="absolute right-5 top-5 grid size-10 place-items-center rounded-full border border-line text-silver-200 hover:text-gold-100"
-              >
-                <X className="size-4" />
-              </button>
-              <p className="mb-3 text-sm text-gold-300">{open.role}</p>
-              <h3 className="text-4xl font-light">{open.name}</h3>
-              <p className="mt-2 text-sm text-silver-400">{open.credentials}</p>
-              <p className="mt-6 text-silver-200">{open.bio}</p>
-              <a href="#" className="mt-8 inline-flex items-center gap-2 text-sm text-gold-300 hover:text-gold-100">
-                <LinkedInIcon className="size-4" /> LinkedIn profile
-              </a>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

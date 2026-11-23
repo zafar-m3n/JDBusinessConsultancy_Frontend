@@ -19,7 +19,7 @@ export const services = [
     ],
     audience: ['First-time founders', 'Sole proprietors moving to Pvt Ltd', 'Foreign investors entering Sri Lanka', 'Partnerships formalising their business'],
     timeline: '7 – 14 working days',
-    startingFrom: 'LKR 35,000',
+    startingFrom: 'LKR 65,000',
     process: [
       { title: 'Name your company', text: 'We check availability and reserve your preferred name.' },
       { title: 'Share your documents', text: 'Usually just NIC copies and a few details about directors and shareholders.' },

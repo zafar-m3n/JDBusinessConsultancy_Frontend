@@ -27,7 +27,6 @@ export default function PackageCards() {
             <span className="text-sm text-silver-400">LKR</span>
             <span className={`font-display text-5xl font-light ${p.popular ? 'gold' : 'text-silver-50'}`}>{p.price}</span>
           </p>
-          {/* PLACEHOLDER price */}
           <p className="mt-1 text-xs text-silver-400">+ government fees</p>
           <div className="hairline my-8" />
           <ul className="flex-1 space-y-3">
