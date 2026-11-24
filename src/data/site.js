@@ -10,7 +10,7 @@ export const site = {
     { label: 'Sweden', display: '+46 72 446 90 92', href: 'tel:+46724469092' },
   ],
   whatsapp: '94768099608', // Sri Lanka number, international format without "+"
-  email: 'jony@jdbusinessconsultancy.com',
+  email: 'jony.d@jdbusinessconsultancy.com',
   hours: 'Mon – Fri · 8:30 AM – 5:30 PM (Sri Lanka time)',
   // PLACEHOLDER: social profile links to be added
   socials: {

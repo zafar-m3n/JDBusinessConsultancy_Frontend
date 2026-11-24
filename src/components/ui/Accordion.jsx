@@ -11,19 +11,19 @@ export default function Accordion({ items, defaultOpen = 0, className = '' }) {
         const isOpen = open === i;
         return (
           <div key={item.q} className="relative">
-            {isOpen && <span className="hairline-gold absolute inset-x-0 -top-px" aria-hidden="true" />}
+            {isOpen && <span className="absolute inset-x-0 -top-px h-0.5 bg-accent-500" aria-hidden="true" />}
             <h3 className="font-sans text-base">
               <button
                 id={`${uid}-h${i}`}
                 aria-expanded={isOpen}
                 aria-controls={`${uid}-p${i}`}
                 onClick={() => setOpen(isOpen ? -1 : i)}
-                className="flex w-full items-center justify-between gap-6 py-6 text-left font-display text-lg font-normal text-silver-50 transition-colors hover:text-gold-100 md:text-xl"
+                className="flex w-full items-center justify-between gap-6 py-6 text-left font-display text-lg font-normal text-silver-50 transition-colors hover:text-accent-600 md:text-xl"
               >
                 <span>{item.q}</span>
                 <span
                   className={`grid size-9 shrink-0 place-items-center rounded-full border transition-all duration-500 ${
-                    isOpen ? 'rotate-45 border-gold-500 text-gold-300' : 'border-line text-silver-400'
+                    isOpen ? 'rotate-45 border-accent-500 bg-accent-500 text-white' : 'border-line bg-white text-silver-400'
                   }`}
                 >
                   <Plus className="size-4" />

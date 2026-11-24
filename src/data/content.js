@@ -2,7 +2,7 @@
 
 export const founder = {
   name: 'Jony Dewson',
-  role: 'Founder & Principal Consultant',
+  role: 'Director',
   credentials: "MBA · Bachelor's in Business Management · Nearly 10 years' experience",
   bio: "Jony holds a Master of Business Administration and a bachelor's degree in business management, and has spent nearly ten years helping businesses get set up, stay compliant and grow. He founded JD Business Consultancy to give Sri Lankan entrepreneurs the kind of clear, honest advice usually reserved for large companies, and works with every client personally, from first registration through to growth planning.",
   note: [

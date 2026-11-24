@@ -23,7 +23,7 @@ The firm was founded by **Jony Dewson** to give Sri Lankan entrepreneurs the kin
 
 > Starting a business is exciting. The paperwork, the tax rules and the legal questions usually are not. We keep our pricing clear, our advice plain and our promises realistic.
 >
-> **Jony Dewson**, Founder & Principal Consultant
+> **Jony Dewson**, Director
 
 ## Our services
 

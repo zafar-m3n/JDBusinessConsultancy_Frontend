@@ -38,7 +38,7 @@ export default function FAQ() {
       <Meta />
       <PageHero
         title="Questions,"
-        gold="answered."
+        strong="answered."
         lead="Can't find what you're looking for? Message us on WhatsApp and we'll reply quickly."
         ghost="?"
       />
@@ -46,8 +46,8 @@ export default function FAQ() {
         <div className="container-x grid gap-12 py-20 lg:grid-cols-12 lg:py-28">
           <aside className="lg:col-span-4">
             <div className="space-y-8 lg:sticky lg:top-32">
-              <label className="rim flex items-center gap-3 rounded-full px-5 py-3">
-                <Search className="size-4 text-gold-300" />
+              <label className="rim flex items-center gap-3 rounded-full bg-white px-5 py-3 focus-within:ring-2 focus-within:ring-accent-500">
+                <Search className="size-4 text-silver-400" />
                 <span className="sr-only">Search questions</span>
                 <input
                   type="search"
@@ -67,11 +67,11 @@ export default function FAQ() {
                           onClick={() => { setCat(c.name); setQuery(''); }}
                           aria-pressed={on}
                           className={`flex w-full items-center justify-between gap-4 rounded-full px-5 py-2.5 text-left font-display transition-colors lg:rounded-xl ${
-                            on ? 'bg-gold-500/10 text-gold-100' : 'text-silver-400 hover:text-silver-50'
+                            on ? 'bg-accent-500 text-white' : 'text-silver-400 hover:bg-white hover:text-silver-50'
                           }`}
                         >
                           {c.name}
-                          <span className="hidden text-xs text-silver-400 lg:inline">{c.items.length}</span>
+                          <span className={`hidden text-xs lg:inline ${on ? 'text-white/80' : 'text-silver-400'}`}>{c.items.length}</span>
                         </button>
                       </li>
                     );
@@ -90,7 +90,7 @@ export default function FAQ() {
           </Reveal>
         </div>
       </section>
-      <ClosingCTA title="Still" gold="unsure?" />
+      <ClosingCTA title="Still" strong="unsure?" />
     </>
   );
 }

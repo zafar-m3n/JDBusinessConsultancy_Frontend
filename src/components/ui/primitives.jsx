@@ -6,22 +6,23 @@ import { WhatsAppIcon } from '@/components/ui/icons';
 import { site, whatsappLink } from '@/data/site';
 import { fullTitle, getSeo } from '@/data/seo';
 
-/* ---------- Gold / silver text ---------- */
-export function Gold({ as: Tag = 'span', glint = false, className = '', children }) {
-  return <Tag className={`gold ${glint ? 'gold-glint' : ''} ${className}`}>{children}</Tag>;
+/* ---------- Emphasis: the bold half of a light/bold pair, as on the business card ----------
+   `glint` adds the accent underline highlight (used once per hero or closing statement). */
+export function Strong({ as: Tag = 'span', glint = false, className = '', children }) {
+  return <Tag className={`strong ${glint ? 'mark' : ''} ${className}`}>{children}</Tag>;
 }
 
 /* ---------- Buttons ---------- */
 const base =
   'group inline-flex items-center justify-center gap-2 rounded-full font-display text-[0.95rem] tracking-wide transition-[transform,background-color,color,box-shadow] duration-300 ease-lux active:scale-[0.98]';
 const variants = {
-  gold:
-    'px-7 py-3.5 text-ink-950 font-medium bg-[linear-gradient(180deg,#f3e2b3_0%,#d9b873_45%,#b48c46_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_10px_30px_-10px_rgba(201,164,92,0.6)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_14px_40px_-8px_rgba(201,164,92,0.8)] hover:-translate-y-0.5',
-  outline: 'rim px-7 py-3.5 text-silver-50 hover:text-gold-100',
-  ghost: 'px-2 py-2 text-silver-50 hover:text-gold-300',
+  accent:
+    'px-7 py-3.5 text-white font-medium bg-accent-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_10px_26px_-10px_rgba(217,56,30,0.65)] hover:bg-accent-600 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_16px_36px_-10px_rgba(217,56,30,0.75)] hover:-translate-y-0.5',
+  outline: 'rim bg-white px-7 py-3.5 text-silver-50 hover:text-accent-600 hover:-translate-y-0.5',
+  ghost: 'px-2 py-2 text-silver-50 hover:text-accent-600',
 };
 
-export function Button({ to, href, variant = 'gold', className = '', children, arrow = false, ...rest }) {
+export function Button({ to, href, variant = 'accent', className = '', children, arrow = false, ...rest }) {
   const cls = `${base} ${variants[variant]} ${className}`;
   const inner = (
     <>
@@ -42,7 +43,7 @@ export function WhatsAppButton({ text, className = '', label = 'Chat on WhatsApp
       rel="noopener noreferrer"
       className={`${base} ${variants.outline} ${className}`}
     >
-      <WhatsAppIcon className="size-4 text-gold-300" />
+      <WhatsAppIcon className="size-4 text-silver-50 transition-colors group-hover:text-accent-500" />
       <span>{label}</span>
     </a>
   );
@@ -90,11 +91,11 @@ export function WordsReveal({ text, className = '', wordClassName = '', delay = 
 }
 
 /* ---------- Section heading ---------- */
-export function SectionHeading({ title, gold, lead, className = '' }) {
+export function SectionHeading({ title, strong, lead, className = '' }) {
   return (
     <div className={`max-w-3xl ${className}`}>
-      <Reveal as="h2" delay={0.05} className="text-4xl font-light md:text-6xl">
-        {title} {gold && <Gold className="font-normal">{gold}</Gold>}
+      <Reveal as="h2" delay={0.05} className="text-4xl font-light tracking-[-0.02em] md:text-6xl">
+        {title} {strong && <Strong>{strong}</Strong>}
       </Reveal>
       {lead && (
         <Reveal as="p" delay={0.1} className="mt-6 text-lg text-silver-400">

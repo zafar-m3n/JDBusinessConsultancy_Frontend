@@ -1,18 +1,23 @@
 @import "tailwindcss";
 
+/* Palette taken from the business card: white paper, soft greys, near-black type.
+   One accent (signal vermilion) is kept for roughly 10% of the page: calls to action,
+   active states, key figures and highlights. Token names are role-based:
+   ink = surfaces (950 is the page), silver = text (50 is the strongest), line = hairlines. */
 @theme {
-  --color-ink-950: #0f0d0d;
-  --color-ink-900: #1c1919;
-  --color-ink-800: #262222;
-  --color-ink-700: #302b2b;
-  --color-line: #353030;
-  --color-silver-400: #8a8686;
-  --color-silver-200: #c9c6c6;
-  --color-silver-50: #f2f1ef;
-  --color-gold-700: #7a5c26;
-  --color-gold-500: #c9a45c;
-  --color-gold-300: #e2c893;
-  --color-gold-100: #f3e2b3;
+  --color-ink-950: #fafaf9;
+  --color-ink-900: #f1f1f0;
+  --color-ink-800: #e9e9e7;
+  --color-ink-700: #dededc;
+  --color-line: #e0dfdc;
+  --color-silver-400: #6b6b6b;
+  --color-silver-200: #3a3a3a;
+  --color-silver-50: #121212;
+  --color-accent-100: #fdebe6;
+  --color-accent-300: #f08a74;
+  --color-accent-500: #d9381e;
+  --color-accent-600: #b42a14;
+  --color-accent-700: #8f200f;
 
   --font-display: "Jost", "Century Gothic", ui-sans-serif, sans-serif;
   --font-sans: "Jost", "Century Gothic", ui-sans-serif, sans-serif;
@@ -25,7 +30,7 @@
 :root {
   --lx: 18vw;
   --ly: 12vh;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -44,24 +49,13 @@ body {
   overflow-x: hidden;
 }
 
-/* Film grain */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  pointer-events: none;
-  opacity: 0.045;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
 ::selection {
-  background: var(--color-gold-500);
-  color: var(--color-ink-950);
+  background: var(--color-accent-500);
+  color: #fff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-gold-300);
+  outline: 2px solid var(--color-accent-500);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -75,6 +69,7 @@ main p:not(
     .text-center,
     .text-center p,
     [class*="font-display"],
+    .eyebrow,
     :is(.rim, li, [class*="col-span-4"]) p,
     [class*="max-w-xs"],
     [class*="max-w-sm"],
@@ -93,56 +88,34 @@ h1, h2, h3, h4 {
 }
 
 @layer components {
-  /* ---------- Gold as lit metal ---------- */
-  /* Background-clipped text paints only inside the element box. Extra padding (cancelled by
-     negative margin) keeps descenders and script swashes from being cut off. */
-  .gold,
-  .silver {
-    padding-block: 0.12em 0.2em;
-    margin-block: -0.12em -0.2em;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
+  /* ---------- Emphasis, as on the card: light words, then a bold one ---------- */
+  .strong {
+    color: var(--color-silver-50);
+    font-weight: 600;
   }
-
-  .gold {
-    color: var(--color-gold-500); /* fallback */
-    background-image:
-      radial-gradient(circle 260px at var(--lx) var(--ly), rgba(255, 253, 246, 1), rgba(246, 232, 194, 0.7) 30%, rgba(243, 226, 179, 0) 70%),
-      linear-gradient(180deg, #ecd6a0 0%, #c9a45c 30%, #86662c 52%, #b8914b 68%, #e2c893 86%, #9c7836 100%);
-    background-attachment: fixed, scroll;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.55)) drop-shadow(0 0 18px rgba(201, 164, 92, 0.12));
-  }
-
-  .gold-glint {
-    background-image:
-      linear-gradient(105deg, transparent 42%, rgba(255, 253, 245, 0.85) 50%, transparent 58%),
-      radial-gradient(circle 260px at var(--lx) var(--ly), rgba(255, 253, 246, 1), rgba(246, 232, 194, 0.7) 30%, rgba(243, 226, 179, 0) 70%),
-      linear-gradient(180deg, #ecd6a0 0%, #c9a45c 30%, #86662c 52%, #b8914b 68%, #e2c893 86%, #9c7836 100%);
-    background-attachment: scroll, fixed, scroll;
-    background-size: 300% 100%, auto, auto;
-    background-repeat: no-repeat;
-    animation: glint 7s var(--ease-lux) infinite;
-  }
-
-  /* Polished silver (logo lettering) */
   .silver {
     color: var(--color-silver-50);
-    background-image:
-      radial-gradient(circle 300px at var(--lx) var(--ly), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 65%),
-      linear-gradient(180deg, #f6f5f3 0%, #cfcccc 45%, #8f8b8b 70%, #d8d6d4 100%);
-    background-attachment: fixed, scroll;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
-  /* ---------- Rim-lit border: brightest on the side facing the light ---------- */
+  /* Accent highlight: a vermilion bar that draws in under the phrase */
+  .mark {
+    background-image: linear-gradient(var(--color-accent-500), var(--color-accent-500));
+    background-repeat: no-repeat;
+    background-position: 0 92%;
+    background-size: 100% 0.09em;
+    padding-bottom: 0.04em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    animation: mark-in 1.1s var(--ease-lux) 0.7s both;
+  }
+
+  /* ---------- Paper card: hairline border that warms toward the cursor, soft shadow ---------- */
   .rim {
     position: relative;
     isolation: isolate;
+    box-shadow:
+      0 1px 2px rgba(18, 18, 18, 0.04),
+      0 18px 40px -26px rgba(18, 18, 18, 0.22);
   }
   .rim::before {
     content: "";
@@ -151,7 +124,7 @@ h1, h2, h3, h4 {
     border-radius: inherit;
     padding: 1px;
     background:
-      radial-gradient(circle 340px at var(--lx) var(--ly), rgba(243, 226, 179, 0.95), rgba(201, 164, 92, 0.35) 40%, rgba(201, 164, 92, 0) 75%) fixed,
+      radial-gradient(circle 260px at var(--lx) var(--ly), rgba(217, 56, 30, 0.55), rgba(217, 56, 30, 0) 70%) fixed,
       linear-gradient(var(--color-line), var(--color-line));
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
@@ -159,27 +132,46 @@ h1, h2, h3, h4 {
     pointer-events: none;
     z-index: 1;
   }
-  /* soft inner sheen */
+  /* soft sheen where the light falls */
   .rim::after {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(circle 420px at var(--lx) var(--ly), rgba(226, 200, 147, 0.07), transparent 70%) fixed;
+    background: radial-gradient(circle 380px at var(--lx) var(--ly), rgba(255, 255, 255, 0.9), transparent 70%) fixed;
     pointer-events: none;
     z-index: -1;
   }
 
-  /* Gold hairline */
+  /* Hairlines */
   .hairline {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--color-line) 10%, var(--color-line) 90%, transparent);
   }
-  .hairline-gold {
+  .hairline-accent {
     height: 1px;
     background:
-      radial-gradient(circle 400px at var(--lx) var(--ly), rgba(243, 226, 179, 0.9), transparent 70%) fixed,
-      linear-gradient(90deg, transparent, rgba(201, 164, 92, 0.35), transparent);
+      radial-gradient(circle 320px at var(--lx) var(--ly), rgba(217, 56, 30, 0.85), transparent 70%) fixed,
+      linear-gradient(90deg, transparent, rgba(18, 18, 18, 0.18), transparent);
+  }
+  /* The rule from the business card: dark at the ends, with a bright glint in the middle */
+  .hairline-glint {
+    position: relative;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, transparent, #2a2a2a 18%, #5a5a5a 46%, #f5f5f5 50%, #5a5a5a 54%, #2a2a2a 82%, transparent);
+  }
+  .hairline-glint::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 22%;
+    height: 10px;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(217, 56, 30, 0.55), rgba(217, 56, 30, 0) 70%);
+    filter: blur(2px);
   }
 
   /* Outlined numerals */
@@ -188,15 +180,15 @@ h1, h2, h3, h4 {
     font-weight: 300;
     line-height: 1;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(201, 164, 92, 0.45);
+    -webkit-text-stroke: 1px rgba(18, 18, 18, 0.22);
   }
 
   .eyebrow {
     font-family: var(--font-display);
     font-size: 0.75rem;
-    letter-spacing: 0.32em;
+    letter-spacing: 0.36em;
     text-transform: uppercase;
-    color: var(--color-gold-300);
+    color: var(--color-silver-400);
   }
 
   .container-x {
@@ -217,14 +209,14 @@ h1, h2, h3, h4 {
   }
 }
 
-@keyframes glint {
-  0%, 55% { background-position: 120% 0, 0 0, 0 0; }
-  85%, 100% { background-position: -20% 0, 0 0, 0 0; }
+@keyframes mark-in {
+  from { background-size: 0% 0.09em; }
+  to { background-size: 100% 0.09em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .gold-glint { animation: none; }
+  .mark { animation: none; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;

@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Clock, Mail, Phone } from 'lucide-react';
-import { Gold, Meta, Reveal } from '@/components/ui/primitives';
+import { Strong, Meta, Reveal } from '@/components/ui/primitives';
 import { WhatsAppIcon } from '@/components/ui/icons';
 import Select from '@/components/ui/Select';
 import { services } from '@/data/services';
 import { site, whatsappLink } from '@/data/site';
+import Diamonds from '@/light/Diamonds';
 
 const inputCls =
-  'w-full rounded-xl border border-line bg-ink-900/60 px-4 py-3 font-display text-base text-silver-50 outline-none transition-colors placeholder:text-silver-400/70 focus:border-gold-500/70 aria-[invalid=true]:border-[#d97757]';
+  'w-full rounded-xl border border-line bg-white px-4 py-3 font-display text-base text-silver-50 outline-none transition-colors placeholder:text-silver-400/70 focus:border-accent-500 aria-[invalid=true]:border-accent-500';
 
 function Field({ label, id, error, optional, children }) {
   return (
@@ -18,7 +19,7 @@ function Field({ label, id, error, optional, children }) {
         {optional && <span className="text-silver-400">Optional</span>}
       </label>
       {children}
-      {error && <p id={`${id}-err`} className="mt-1.5 text-sm text-[#e59a7d]">{error}</p>}
+      {error && <p id={`${id}-err`} className="mt-1.5 text-sm text-accent-600">{error}</p>}
     </div>
   );
 }
@@ -65,15 +66,12 @@ export default function Contact() {
       <Meta />
 
       <section className="relative overflow-hidden pt-40 pb-24 md:pt-48 md:pb-32">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-0 h-[520px] w-[900px] -translate-x-1/2 bg-[radial-gradient(ellipse_at_top,rgba(201,164,92,0.14),transparent_65%)]"
-        />
+        <Diamonds preset="side" />
         <div className="container-x relative grid gap-16 lg:grid-cols-12">
           {/* Intro + details */}
           <div className="lg:col-span-5">
-            <Reveal as="h1" className="text-5xl font-light md:text-7xl">
-              Let's <Gold glint className="font-normal">talk.</Gold>
+            <Reveal as="h1" className="text-5xl font-light tracking-[-0.02em] md:text-7xl">
+              Let's <Strong glint>talk.</Strong>
             </Reveal>
             <Reveal as="p" delay={0.05} className="mt-6 max-w-md text-lg text-silver-400">
               Tell us a little about what you need and we'll continue the conversation on WhatsApp. The first
@@ -82,11 +80,11 @@ export default function Contact() {
             <Reveal as="ul" delay={0.1} className="mt-12 space-y-5">
               {details.map(({ Icon, label, value, href }) => (
                 <li key={value} className="flex items-start gap-4">
-                  <Icon className="mt-1 size-5 shrink-0 text-gold-300" strokeWidth={1.5} />
+                  <Icon className="mt-1 size-5 shrink-0 text-silver-50" strokeWidth={1.5} />
                   <div>
                     <p className="font-display text-sm text-silver-400">{label}</p>
                     {href ? (
-                      <a href={href} className="break-words font-display text-silver-50 hover:text-gold-100">{value}</a>
+                      <a href={href} className="break-words font-display text-silver-50 hover:text-accent-600">{value}</a>
                     ) : (
                       <span className="font-display text-silver-50">{value}</span>
                     )}
@@ -98,10 +96,10 @@ export default function Contact() {
 
           {/* WhatsApp message builder */}
           <Reveal delay={0.1} className="lg:col-span-6 lg:col-start-7">
-            <form onSubmit={send} noValidate className="rim space-y-5 rounded-3xl bg-ink-900/50 p-6 md:p-10">
+            <form onSubmit={send} noValidate className="rim space-y-5 rounded-3xl bg-white p-6 md:p-10">
               <div className="flex items-center gap-3 pb-2">
-                <span className="grid size-10 place-items-center rounded-full bg-gold-500/15">
-                  <WhatsAppIcon className="size-5 text-gold-300" />
+                <span className="grid size-10 place-items-center rounded-full bg-ink-900">
+                  <WhatsAppIcon className="size-5 text-silver-50" />
                 </span>
                 <p className="font-display text-lg text-silver-50">Message us on WhatsApp</p>
               </div>
@@ -139,7 +137,7 @@ export default function Contact() {
               </Field>
               <button
                 type="submit"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[linear-gradient(180deg,#f3e2b3_0%,#d9b873_45%,#b48c46_100%)] px-7 py-3.5 font-display text-[0.95rem] font-medium tracking-wide text-ink-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_10px_30px_-10px_rgba(201,164,92,0.6)] transition-[transform,box-shadow] duration-300 ease-lux hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_14px_40px_-8px_rgba(201,164,92,0.8)] active:scale-[0.98]"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent-500 px-7 py-3.5 font-display text-[0.95rem] font-medium tracking-wide text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_10px_26px_-10px_rgba(217,56,30,0.65)] transition-[transform,background-color,box-shadow] duration-300 ease-lux hover:-translate-y-0.5 hover:bg-accent-600 active:scale-[0.98]"
               >
                 <WhatsAppIcon className="size-4" />
                 Send on WhatsApp

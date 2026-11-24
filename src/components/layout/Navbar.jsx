@@ -47,8 +47,8 @@ export default function Navbar() {
   const closeMega = () => { closeTimer.current = setTimeout(() => setMega(false), 120); };
 
   const linkCls = ({ isActive }) =>
-    `relative py-2 font-display text-[0.95rem] tracking-wide transition-colors hover:text-gold-100 ${
-      isActive ? 'text-gold-300' : 'text-silver-200'
+    `relative whitespace-nowrap py-2 font-display text-[0.95rem] tracking-wide transition-colors hover:text-accent-600 after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:origin-left after:rounded-full after:bg-accent-500 after:transition-transform after:duration-300 ${
+      isActive ? 'text-silver-50 after:scale-x-100' : 'text-silver-200 after:scale-x-0 hover:after:scale-x-100'
     }`;
 
   return (
@@ -57,15 +57,15 @@ export default function Navbar() {
       <div
         aria-hidden="true"
         className={`absolute inset-0 border-b transition-all duration-500 ${
-          scrolled || mega ? 'border-line/70 bg-ink-950/80 backdrop-blur-xl' : 'border-transparent bg-transparent'
+          scrolled || mega ? 'border-line bg-ink-950/85 shadow-[0_10px_30px_-24px_rgba(18,18,18,0.35)] backdrop-blur-xl' : 'border-transparent bg-transparent'
         }`}
       />
       <nav className="container-x relative flex h-20 items-center justify-between gap-6" aria-label="Main">
         <Link to="/" className="shrink-0" aria-label="JD Business Consultancy, home">
-          <Logo className="h-12 w-auto md:h-14" />
+          <Logo className="h-7 w-auto md:h-8" />
         </Link>
 
-        <ul className="hidden items-center gap-9 lg:flex">
+        <ul className="hidden items-center gap-7 lg:flex xl:gap-9">
           {links.map(l =>
             l.mega ? (
               <li key={l.to} onMouseEnter={openMega} onMouseLeave={closeMega} className="relative">
@@ -75,7 +75,7 @@ export default function Navbar() {
                     aria-label="Show services"
                     aria-expanded={mega}
                     onClick={() => setMega(v => !v)}
-                    className="p-1 text-silver-400 hover:text-gold-300"
+                    className="p-1 text-silver-400 hover:text-accent-600"
                   >
                     <ChevronDown className={`size-4 transition-transform duration-300 ${mega ? 'rotate-180' : ''}`} />
                   </button>
@@ -90,13 +90,13 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden lg:block">
-          <Button to="/contact" variant="outline" className="!px-6 !py-2.5" arrow>
+          <Button to="/contact" className="!px-6 !py-2.5" arrow>
             Free Consultation
           </Button>
         </div>
 
         <button
-          className="grid size-11 place-items-center rounded-full border border-line text-silver-50 lg:hidden"
+          className="grid size-11 place-items-center rounded-full border border-line bg-white text-silver-50 lg:hidden"
           aria-label={mobile ? 'Close menu' : 'Open menu'}
           aria-expanded={mobile}
           onClick={() => setMobile(v => !v)}
@@ -115,14 +115,14 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute inset-x-0 top-20 hidden border-b border-line/70 bg-ink-950/95 backdrop-blur-xl lg:block"
+            className="absolute inset-x-0 top-20 hidden border-b border-line/70 bg-ink-950/95 shadow-[0_30px_60px_-40px_rgba(18,18,18,0.4)] backdrop-blur-xl lg:block"
           >
             <div className="container-x grid grid-cols-12 gap-10 py-12">
               <div className="col-span-4">
                 <p className="font-display text-3xl font-light text-silver-50">
-                  Everything your business needs, <span className="gold">under one roof.</span>
+                  Everything your business needs, <span className="strong">under one roof.</span>
                 </p>
-                <Link to="/services" className="mt-6 inline-flex items-center gap-2 text-sm text-gold-300 hover:text-gold-100">
+                <Link to="/services" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent-500 hover:text-accent-600">
                   View all services <ArrowUpRight className="size-4" />
                 </Link>
               </div>
@@ -131,11 +131,11 @@ export default function Navbar() {
                   <li key={s.slug}>
                     <Link
                       to={`/services/${s.slug}`}
-                      className="group flex gap-5 border-b border-line py-5 transition-colors hover:border-gold-500/50"
+                      className="group flex gap-5 border-b border-line py-5 transition-colors hover:border-accent-500"
                     >
-                      <span className="font-display text-sm text-gold-500">0{i + 1}</span>
+                      <span className="font-display text-sm text-accent-500">0{i + 1}</span>
                       <span>
-                        <span className="block font-display text-lg text-silver-50 transition-colors group-hover:text-gold-100">
+                        <span className="block font-display text-lg text-silver-50 transition-colors group-hover:text-accent-600">
                           {s.title}
                         </span>
                         <span className="mt-1 block text-sm leading-snug text-silver-400 line-clamp-1">{s.short}</span>
@@ -173,11 +173,11 @@ export default function Navbar() {
                       end={l.to === '/'}
                       className={({ isActive }) =>
                         `flex items-baseline gap-4 border-b border-line py-4 font-display text-3xl font-light ${
-                          isActive ? 'text-gold-300' : 'text-silver-50'
+                          isActive ? 'font-normal text-accent-500' : 'text-silver-50'
                         }`
                       }
                     >
-                      <span className="text-xs text-gold-500">0{i + 1}</span>
+                      <span className="text-xs text-accent-500">0{i + 1}</span>
                       {l.label}
                     </NavLink>
                   </motion.li>

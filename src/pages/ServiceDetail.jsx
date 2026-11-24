@@ -1,10 +1,11 @@
 import { Link, useParams } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
-import { Button, Gold, Meta, Reveal, WhatsAppButton } from '@/components/ui/primitives';
+import { Button, Strong, Meta, Reveal, WhatsAppButton } from '@/components/ui/primitives';
 import { ClosingCTA } from '@/components/layout/Chrome';
 import Accordion from '@/components/ui/Accordion';
 import { getService, services } from '@/data/services';
 import NotFound from '@/pages/NotFound';
+import Diamonds from '@/light/Diamonds';
 
 export default function ServiceDetail() {
   const { slug } = useParams();
@@ -21,20 +22,17 @@ export default function ServiceDetail() {
 
       {/* Header */}
       <section className="relative overflow-hidden pt-40 pb-16 md:pt-48 md:pb-24">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-40 -top-40 size-[640px] rounded-full bg-[radial-gradient(circle,rgba(201,164,92,0.14),transparent_65%)]"
-        />
+        <Diamonds preset="side" />
         <div className="container-x relative">
           <Reveal className="mb-10 flex items-center gap-4 text-sm text-silver-400">
-            <Link to="/services" className="hover:text-gold-100">Services</Link>
+            <Link to="/services" className="hover:text-accent-600">Services</Link>
             <span className="h-px w-8 bg-line" />
-            <span className="font-display tracking-[0.3em] text-gold-300">
+            <span className="font-display tracking-[0.3em] text-silver-50">
               0{index + 1} / 0{services.length}
             </span>
           </Reveal>
-          <Reveal as="h1" className="max-w-5xl text-4xl font-light md:text-7xl">
-            <Gold glint className="font-normal">{service.title}</Gold>
+          <Reveal as="h1" className="max-w-5xl text-4xl font-light tracking-[-0.02em] md:text-7xl">
+            <Strong glint>{service.title}</Strong>
           </Reveal>
           <Reveal as="p" delay={0.08} className="mt-8 max-w-2xl text-xl text-silver-200 md:text-2xl">
             {service.statement}
@@ -46,8 +44,8 @@ export default function ServiceDetail() {
       <section className="border-t border-line">
         <div className="container-x grid gap-14 py-20 lg:grid-cols-12 lg:py-28">
           <aside className="lg:col-span-4">
-            <div className="rim space-y-8 rounded-3xl bg-ink-900/70 p-8 lg:sticky lg:top-32">
-              <span className="grid size-14 place-items-center rounded-full border border-gold-500/40 text-gold-300">
+            <div className="rim space-y-8 rounded-3xl bg-white p-8 lg:sticky lg:top-32">
+              <span className="grid size-14 place-items-center rounded-full border border-line bg-ink-950 text-silver-50">
                 <Icon className="size-6" strokeWidth={1.3} />
               </span>
               <dl className="space-y-6">
@@ -91,8 +89,8 @@ export default function ServiceDetail() {
               <ul className="grid gap-x-8 sm:grid-cols-2">
                 {service.includes.map(item => (
                   <li key={item} className="flex gap-4 border-b border-line py-4 text-silver-200">
-                    <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-gold-500/15">
-                      <Check className="size-3.5 text-gold-300" />
+                    <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-accent-100">
+                      <Check className="size-3.5 text-accent-600" />
                     </span>
                     {item}
                   </li>
@@ -126,15 +124,15 @@ export default function ServiceDetail() {
         to={`/services/${next.slug}`}
         className="group relative block overflow-hidden border-t border-line"
       >
-        <span className="absolute inset-0 -translate-x-full bg-[linear-gradient(100deg,transparent,rgba(226,200,147,0.10),transparent)] transition-transform duration-1000 ease-lux group-hover:translate-x-full" />
+        <span className="absolute inset-0 -translate-x-full bg-[linear-gradient(100deg,transparent,rgba(217,56,30,0.07),transparent)] transition-transform duration-1000 ease-lux group-hover:translate-x-full" />
         <div className="container-x flex items-center justify-between gap-6 py-14 md:py-20">
           <div>
             <p className="mb-3 text-sm text-silver-400">Next service</p>
-            <p className="font-display text-3xl font-light text-silver-50 transition-colors duration-500 group-hover:text-gold-100 md:text-6xl">
+            <p className="font-display text-3xl font-light text-silver-50 transition-colors duration-500 group-hover:text-accent-600 md:text-6xl">
               {next.title}
             </p>
           </div>
-          <span className="rim grid size-16 shrink-0 place-items-center rounded-full text-gold-300 transition-transform duration-500 group-hover:translate-x-2 md:size-20">
+          <span className="grid size-16 shrink-0 place-items-center rounded-full bg-accent-500 text-white shadow-[0_12px_30px_-12px_rgba(217,56,30,0.7)] transition-transform duration-500 group-hover:translate-x-2 md:size-20">
             <ArrowRight className="size-6" />
           </span>
         </div>

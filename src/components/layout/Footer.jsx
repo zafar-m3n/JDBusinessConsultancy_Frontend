@@ -22,10 +22,10 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-line bg-ink-950">
+    <footer className="relative overflow-hidden border-t border-line bg-ink-900">
       <div className="container-x grid gap-x-16 gap-y-12 pt-20 pb-12 text-[15px] leading-relaxed md:grid-cols-2 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <Logo className="h-12 w-auto" />
+          <Logo className="h-8 w-auto" />
           <p className="mt-6 max-w-xs text-silver-400">{site.description}</p>
           <ul className="mt-8 flex gap-3">
             {socials.map(({ href, label, Icon }) => (
@@ -33,7 +33,7 @@ export default function Footer() {
                 <a
                   href={href}
                   aria-label={label}
-                  className="rim grid size-10 place-items-center rounded-full text-silver-200 transition-colors hover:text-gold-100"
+                  className="rim grid size-10 place-items-center rounded-full bg-white text-silver-200 transition-colors hover:text-accent-600"
                 >
                   <Icon className="size-4" />
                 </a>
@@ -47,7 +47,7 @@ export default function Footer() {
           <ul className="space-y-2.5">
             {services.map(s => (
               <li key={s.slug}>
-                <Link to={`/services/${s.slug}`} className="text-silver-200 transition-colors hover:text-gold-100">
+                <Link to={`/services/${s.slug}`} className="text-silver-200 transition-colors hover:text-accent-600">
                   {s.title}
                 </Link>
               </li>
@@ -60,7 +60,7 @@ export default function Footer() {
           <ul className="space-y-2.5">
             {company.map(l => (
               <li key={l.to}>
-                <Link to={l.to} className="text-silver-200 transition-colors hover:text-gold-100">
+                <Link to={l.to} className="text-silver-200 transition-colors hover:text-accent-600">
                   {l.label}
                 </Link>
               </li>
@@ -72,11 +72,11 @@ export default function Footer() {
           <h3 className="eyebrow mb-5 !text-[0.68rem]">Contact</h3>
           <address className="space-y-2.5 not-italic text-silver-200">
             {site.phones.map(p => (
-              <a key={p.href} href={p.href} className="block hover:text-gold-100">
+              <a key={p.href} href={p.href} className="block hover:text-accent-600">
                 {p.display} <span className="text-silver-400">· {p.label}</span>
               </a>
             ))}
-            <a href={`mailto:${site.email}`} className="block break-all hover:text-gold-100">{site.email}</a>
+            <a href={`mailto:${site.email}`} className="block break-all hover:text-accent-600">{site.email}</a>
             <p className="text-silver-400">{site.hours}</p>
           </address>
           <WhatsAppButton className="mt-6 !px-4 !py-2 !text-sm" />
@@ -91,11 +91,15 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Oversized wordmark, lit by the global light */}
-      <div aria-hidden="true" className="pointer-events-none select-none overflow-hidden pb-6 pt-4">
-        <p className="gold whitespace-nowrap text-center font-display text-[7.5vw] font-medium leading-[1.1] tracking-[-0.02em] opacity-90">
-          JD CONSULTANCY
+      {/* Oversized wordmark in the card's light/bold pairing, over the card's glint rule */}
+      <div aria-hidden="true" className="pointer-events-none select-none overflow-hidden pb-8 pt-6">
+        <p className="whitespace-nowrap text-center font-display text-[6.4vw] leading-[1.1] tracking-[-0.01em] text-ink-700">
+          <span className="font-bold">JD</span>
+          <span className="mx-[0.3em] inline-block h-[0.8em] w-[0.04em] translate-y-[0.08em] bg-ink-700" />
+          <span className="font-light">BUSINESS </span>
+          <span className="font-bold">CONSULTANCY</span>
         </p>
+        <div className="hairline-glint mx-auto mt-4 w-[min(70%,820px)]" />
       </div>
     </footer>
   );

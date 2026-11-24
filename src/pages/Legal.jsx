@@ -44,7 +44,7 @@ export default function Legal({ kind }) {
             <ol className="sticky top-32 space-y-2 text-sm">
               {doc.sections.map(([h]) => (
                 <li key={h}>
-                  <a href={`#${slug(h)}`} className="text-silver-400 hover:text-gold-100">{h}</a>
+                  <a href={`#${slug(h)}`} className="text-silver-400 hover:text-accent-600">{h}</a>
                 </li>
               ))}
             </ol>
@@ -52,7 +52,7 @@ export default function Legal({ kind }) {
           <div className="max-w-[720px] space-y-12 lg:col-span-8 lg:col-start-5">
             {doc.sections.map(([h, p], i) => (
               <Reveal key={h} id={slug(h)} className="scroll-mt-32">
-                <h2 className="text-2xl font-light"><span className="mr-3 text-gold-500">{String(i + 1).padStart(2, '0')}</span>{h}</h2>
+                <h2 className="text-2xl font-light"><span className="mr-3 text-silver-400">{String(i + 1).padStart(2, '0')}</span>{h}</h2>
                 <p className="mt-4 text-silver-400">{p}</p>
               </Reveal>
             ))}

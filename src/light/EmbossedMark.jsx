@@ -2,8 +2,8 @@ import { useEffect, useId, useRef } from 'react';
 import { useLight } from '@/light/LightProvider';
 
 /**
- * The JD monogram rendered as embossed gold. A specular-lighting filter's
- * point light tracks the global light, so the metal shades as it moves.
+ * The JD monogram pressed into the paper in black ink, as on the business card.
+ * A specular-lighting filter's point light tracks the global light, so a soft sheen moves across it.
  */
 const VB = { x: 645, y: 460, w: 305, h: 427 };
 
@@ -27,7 +27,7 @@ export default function EmbossedMark({ className = '' }) {
     });
   }, [subscribe]);
 
-  const stops = ['#5e4519', '#a8813d', '#7a5c26'];
+  const stops = ['#2b2b2b', '#121212', '#050505'];
 
   return (
     <svg
@@ -50,13 +50,13 @@ export default function EmbossedMark({ className = '' }) {
             surfaceScale="9"
             specularConstant="1.25"
             specularExponent="22"
-            lightingColor="#fff1cf"
+            lightingColor="#ffffff"
             result="spec"
           >
             <fePointLight ref={lightRef} x="700" y="500" z="260" />
           </feSpecularLighting>
           <feComposite in="spec" in2="SourceAlpha" operator="in" result="specIn" />
-          <feComposite in="SourceGraphic" in2="specIn" operator="arithmetic" k1="0" k2="1" k3="0.85" k4="0" />
+          <feComposite in="SourceGraphic" in2="specIn" operator="arithmetic" k1="0" k2="1" k3="0.32" k4="0" />
         </filter>
       </defs>
       <g filter={`url(#${id}-f)`} fill={`url(#${id}-g)`}>

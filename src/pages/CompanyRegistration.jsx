@@ -4,8 +4,9 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import { Check, Minus } from 'lucide-react';
 import TiltedCard from '@/components/reactbits/TiltedCard';
 import Accordion from '@/components/ui/Accordion';
-import { Button, Gold, Meta, Reveal, SectionHeading, WhatsAppButton } from '@/components/ui/primitives';
+import { Button, Strong, Meta, Reveal, SectionHeading, WhatsAppButton } from '@/components/ui/primitives';
 import { ClosingCTA } from '@/components/layout/Chrome';
+import Diamonds from '@/light/Diamonds';
 import PackageCards from '@/components/shared/PackageCards';
 import { comparison, faqCategories, packages, registrationDocs } from '@/data/content';
 
@@ -26,14 +27,14 @@ export default function CompanyRegistration() {
       <section className="section-y border-t border-line">
         <div className="container-x grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <SectionHeading title="Before you" gold="register." />
+            <SectionHeading title="Before you" strong="register." />
           </div>
           <Reveal className="lg:col-span-7 lg:col-start-6">
             <Accordion items={faqCategories[1].items} />
           </Reveal>
         </div>
       </section>
-      <ClosingCTA title="Ready to make it" gold="official?" />
+      <ClosingCTA title="Ready to make it" strong="official?" />
     </>
   );
 }
@@ -42,17 +43,14 @@ export default function CompanyRegistration() {
 function Hero() {
   return (
     <section className="relative overflow-hidden pt-36 pb-20 md:pt-44 md:pb-28">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-0 h-[700px] w-[900px] bg-[radial-gradient(ellipse_at_top_right,rgba(201,164,92,0.16),transparent_60%)]"
-      />
+      <Diamonds preset="side" />
       <div className="container-x relative grid items-center gap-16 lg:grid-cols-12">
         <div className="lg:col-span-6">
-          <Reveal className="mb-8 inline-flex items-center gap-2 rounded-full border border-gold-500/40 px-4 py-1.5 text-sm text-gold-100">
-            <span className="size-1.5 rounded-full bg-gold-300" /> No hidden fees
+          <Reveal className="mb-8 inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-1.5 text-sm text-silver-50 shadow-sm">
+            <span className="size-1.5 rotate-45 bg-accent-500" /> No hidden fees
           </Reveal>
-          <Reveal as="h1" delay={0.05} className="text-5xl font-light md:text-7xl">
-            Register your <Gold glint className="font-normal">Private Limited</Gold> company.
+          <Reveal as="h1" delay={0.05} className="text-5xl font-light tracking-[-0.02em] md:text-7xl">
+            Register your <Strong glint>Private Limited</Strong> company.
           </Reveal>
           <Reveal as="p" delay={0.1} className="mt-8 max-w-xl text-lg text-silver-400 md:text-xl">
             We handle the name search, the forms and the filing. You receive your Certificate of Incorporation in 7 to
@@ -74,7 +72,7 @@ function Hero() {
             showTooltip={false}
             flipOnClick={false}
             glare={0.35}
-            glareColor="#f3e2b3"
+            glareColor="#ffffff"
             radius={18}
             trackWindow
           >
@@ -89,13 +87,13 @@ function Hero() {
 function Certificate() {
   // Sized with container-query units so it scales with the card.
   return (
-    <div className="@container absolute inset-0 bg-[linear-gradient(160deg,#2a2524,#171414)]">
+    <div className="@container absolute inset-0 bg-[linear-gradient(160deg,#ffffff,#f1f1f0)]">
       <div className="absolute inset-0 flex flex-col justify-between px-[8cqw] py-[7cqw]">
-        <div className="pointer-events-none absolute inset-[3cqw] rounded-[12px] border border-gold-500/40" />
-        <div className="pointer-events-none absolute inset-[4.5cqw] rounded-[10px] border border-gold-500/15" />
+        <div className="pointer-events-none absolute inset-[3cqw] rounded-[12px] border border-silver-50/25" />
+        <div className="pointer-events-none absolute inset-[4.5cqw] rounded-[10px] border border-silver-50/10" />
         <div className="relative text-center">
           <p className="text-[1.9cqw] uppercase tracking-[0.35em] text-silver-400">Democratic Socialist Republic of Sri Lanka</p>
-          <p className="gold mt-[2cqw] font-display text-[5cqw] font-medium uppercase leading-tight tracking-[0.1em]">
+          <p className="mt-[2cqw] font-display text-[5cqw] font-semibold uppercase leading-tight tracking-[0.1em] text-silver-50">
             Certificate of Incorporation
           </p>
           <p className="mt-[1cqw] text-[2cqw] text-silver-400">Companies Act No. 07 of 2007</p>
@@ -110,10 +108,10 @@ function Certificate() {
             <p>Reg. No. PV 000000</p>
             <p>Registrar of Companies</p>
           </div>
-          {/* Gold foil seal catching the light */}
-          <div className="relative grid aspect-square w-[15cqw] place-items-center rounded-full bg-[conic-gradient(from_200deg,#7a5c26,#f3e2b3,#b48c46,#ecd59f,#7a5c26,#e2c893,#7a5c26)] shadow-[0_6px_20px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.5)]">
-            <div className="grid size-[78%] place-items-center rounded-full border border-ink-950/30 bg-[radial-gradient(circle_at_35%_30%,#f6e7bf,#c9a45c_55%,#86662c)]">
-              <span className="font-display text-[3.4cqw] font-semibold tracking-wider text-ink-950/80">JD</span>
+          {/* Vermilion wax seal */}
+          <div className="relative grid aspect-square w-[15cqw] place-items-center rounded-full bg-[conic-gradient(from_200deg,#8f200f,#e8573c,#b42a14,#e04a2e,#8f200f,#d9381e,#8f200f)] shadow-[0_6px_16px_rgba(143,32,15,0.35),inset_0_1px_0_rgba(255,255,255,0.35)]">
+            <div className="grid size-[78%] place-items-center rounded-full border border-white/30 bg-[radial-gradient(circle_at_35%_30%,#ee6a4f,#d9381e_55%,#a12611)]">
+              <span className="font-display text-[3.4cqw] font-bold tracking-wider text-white/90">JD</span>
             </div>
           </div>
         </div>
@@ -136,15 +134,15 @@ function Process() {
   return (
     <section ref={ref} className="section-y border-t border-line bg-ink-900">
       <div className="container-x">
-        <SectionHeading title="Three steps." gold="That's it." className="mb-20" />
+        <SectionHeading title="Three steps." strong="That's it." className="mb-20" />
         <div className="relative">
           <div className="absolute left-0 right-0 top-7 hidden h-px bg-line md:block" aria-hidden="true">
-            <motion.div style={{ scaleX: fill }} className="h-px origin-left bg-gradient-to-r from-gold-700 via-gold-300 to-gold-100 shadow-[0_0_12px_rgba(201,164,92,0.8)]" />
+            <motion.div style={{ scaleX: fill }} className="h-px origin-left bg-accent-500" />
           </div>
           <ol className="grid gap-12 md:grid-cols-3">
             {steps.map((s, i) => (
               <Reveal as="li" key={s.title} delay={i * 0.1} className="relative">
-                <span className="relative grid size-14 place-items-center rounded-full border border-gold-500/60 bg-ink-900 font-display text-gold-300">
+                <span className="relative grid size-14 place-items-center rounded-full border border-line bg-white font-display font-medium text-silver-50 shadow-sm">
                   0{i + 1}
                 </span>
                 <h3 className="mt-8 text-3xl font-light">{s.title}</h3>
@@ -167,10 +165,10 @@ function Packages() {
         <div id="compare" className="mb-16 flex scroll-mt-28 flex-col justify-between gap-8 md:flex-row md:items-end">
           <SectionHeading
             title="Choose your"
-            gold="package."
+            strong="package."
             lead="Prices exclude government fees, which we always quote upfront."
           />
-          <div role="tablist" aria-label="Package view" className="rim inline-flex shrink-0 rounded-full p-1">
+          <div role="tablist" aria-label="Package view" className="rim inline-flex shrink-0 rounded-full bg-white p-1">
             {['Cards', 'Compare all'].map((l, i) => {
               const on = compare === (i === 1);
               return (
@@ -180,7 +178,7 @@ function Packages() {
                   aria-selected={on}
                   onClick={() => setCompare(i === 1)}
                   className={`rounded-full px-5 py-2 font-display text-sm transition-colors ${
-                    on ? 'bg-gold-500 text-ink-950' : 'text-silver-200 hover:text-gold-100'
+                    on ? 'bg-silver-50 text-white' : 'text-silver-200 hover:text-accent-600'
                   }`}
                 >
                   {l}
@@ -199,21 +197,21 @@ function Packages() {
 function CompareTable() {
   const cell = v =>
     v === true ? (
-      <Check className="mx-auto size-5 text-gold-300" aria-label="Included" />
+      <Check className="mx-auto size-5 text-silver-50" aria-label="Included" />
     ) : v === false ? (
       <Minus className="mx-auto size-4 text-silver-400/50" aria-label="Not included" />
     ) : (
-      <span className="text-gold-100">{v}</span>
+      <span className="font-medium text-accent-600">{v}</span>
     );
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="rim overflow-x-auto rounded-3xl bg-ink-900/60">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="rim overflow-x-auto rounded-3xl bg-white">
       <table className="w-full min-w-[640px] text-left">
         <thead>
           <tr className="border-b border-line">
             <th className="p-6 font-display font-normal text-silver-400">Feature</th>
             {packages.map(p => (
               <th key={p.name} className="p-6 text-center">
-                <span className={`block font-display text-xl ${p.popular ? 'gold' : 'text-silver-50'}`}>{p.name}</span>
+                <span className={`block font-display text-xl font-semibold uppercase tracking-[0.08em] ${p.popular ? 'text-accent-500' : 'text-silver-50'}`}>{p.name}</span>
                 <span className="text-sm font-normal text-silver-400">LKR {p.price}</span>
               </th>
             ))}
@@ -224,7 +222,7 @@ function CompareTable() {
             <tr key={label} className="border-b border-line/60 last:border-0">
               <td className="p-5 pl-6 text-silver-200">{label}</td>
               {vals.map((v, i) => (
-                <td key={i} className={`p-5 text-center ${packages[i].popular ? 'bg-gold-500/[0.05]' : ''}`}>{cell(v)}</td>
+                <td key={i} className={`p-5 text-center ${packages[i].popular ? 'bg-accent-100/50' : ''}`}>{cell(v)}</td>
               ))}
             </tr>
           ))}
@@ -257,7 +255,7 @@ function Documents() {
           <div className="lg:sticky lg:top-32">
             <SectionHeading
               title="Are you"
-              gold="ready?"
+              strong="ready?"
               lead="Tick what you already have. Anything missing, we'll help you prepare."
             />
             <Reveal delay={0.1} className="mt-10 flex items-center gap-6">
@@ -277,13 +275,13 @@ function Documents() {
                 />
                 <defs>
                   <linearGradient id="ring" x1="0" x2="1">
-                    <stop offset="0" stopColor="#86662c" />
-                    <stop offset="1" stopColor="#f3e2b3" />
+                    <stop offset="0" stopColor="#b42a14" />
+                    <stop offset="1" stopColor="#e8573c" />
                   </linearGradient>
                 </defs>
               </svg>
               <div aria-live="polite">
-                <p className="gold font-display text-5xl font-light">{Math.round(pct * 100)}%</p>
+                <p className="font-display text-5xl font-normal text-accent-500">{Math.round(pct * 100)}%</p>
                 <p className="text-sm text-silver-400">{have.size} of {all.length} ready</p>
               </div>
             </Reveal>
@@ -300,13 +298,13 @@ function Documents() {
                     <li key={item}>
                       <label
                         className={`flex cursor-pointer items-center gap-4 rounded-2xl border px-5 py-4 transition-colors ${
-                          on ? 'border-gold-500/50 bg-gold-500/[0.06] text-silver-50' : 'border-line text-silver-200 hover:border-silver-400/40'
+                          on ? 'border-accent-500 bg-white text-silver-50 shadow-sm' : 'border-line bg-white/60 text-silver-200 hover:border-silver-400/60'
                         }`}
                       >
                         <input type="checkbox" className="sr-only" checked={on} onChange={() => toggle(item)} />
                         <span
                           className={`grid size-6 shrink-0 place-items-center rounded-md border transition-colors ${
-                            on ? 'border-gold-300 bg-gold-500 text-ink-950' : 'border-silver-400/50'
+                            on ? 'border-accent-500 bg-accent-500 text-white' : 'border-silver-400/50'
                           }`}
                         >
                           {on && <Check className="size-4" strokeWidth={3} />}
@@ -337,11 +335,11 @@ function Timeline() {
   return (
     <section className="section-y border-t border-line">
       <div className="container-x">
-        <SectionHeading title="What happens," gold="and when." className="mb-16" />
+        <SectionHeading title="What happens," strong="and when." className="mb-16" />
         <ol className="grid gap-px overflow-hidden rounded-3xl border border-line bg-line md:grid-cols-4">
           {timeline.map((t, i) => (
-            <Reveal as="li" key={t.title} delay={i * 0.08} className="bg-ink-950 p-8">
-              <p className="font-display text-sm tracking-[0.2em] text-gold-300 uppercase">{t.when}</p>
+            <Reveal as="li" key={t.title} delay={i * 0.08} className="bg-white p-8">
+              <p className="font-display text-sm font-medium tracking-[0.2em] text-silver-400 uppercase">{t.when}</p>
               <h3 className="mt-6 text-2xl font-light">{t.title}</h3>
               <p className="mt-3 text-silver-400">{t.text}</p>
             </Reveal>

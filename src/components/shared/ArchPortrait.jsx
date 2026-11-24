@@ -1,16 +1,30 @@
-/** Arched portrait frame with a rim-lit border. */
-export default function ArchPortrait({ name }) {
+import portrait from '@/assets/jony-dewson.webp';
+
+/**
+ * Arched portrait of the founder. The name is set like the business card:
+ * first name light, surname bold, role in wide-spaced capitals.
+ */
+export default function ArchPortrait({ name, role }) {
+  const [first, ...rest] = name.split(' ');
   return (
-    <div className="rim relative aspect-[3/4] overflow-hidden rounded-t-full rounded-b-3xl bg-ink-800">
-      {/* PLACEHOLDER portrait: replace the gradient and silhouette with a real photo */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_10%,rgba(226,200,147,0.25),transparent_55%),linear-gradient(180deg,#2a2525,#141212)]" />
-      <svg viewBox="0 0 200 260" className="absolute inset-x-0 bottom-0 w-full text-ink-950/80" aria-hidden="true">
-        <circle cx="100" cy="105" r="42" fill="currentColor" />
-        <path d="M20 260c6-62 40-96 80-96s74 34 80 96z" fill="currentColor" />
-      </svg>
-      <div className="absolute inset-x-0 bottom-0 p-6 text-center">
-        <p className="font-display text-lg text-silver-50">{name}</p>
-      </div>
-    </div>
+    <figure className="rim relative aspect-[3/4] overflow-hidden rounded-b-3xl bg-white [border-top-left-radius:50%_37.5%] [border-top-right-radius:50%_37.5%]">
+      <img
+        src={portrait}
+        alt={`Portrait of ${name}`}
+        width="768"
+        height="1024"
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 size-full object-cover object-top"
+      />
+      {/* Darkens the bottom of the jacket so the caption reads clearly */}
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/70 to-transparent" />
+      <figcaption className="absolute inset-x-0 bottom-0 p-6 text-center font-display text-white">
+        <span className="block text-xl tracking-[0.06em] uppercase">
+          <span className="font-light">{first}</span> <span className="font-bold">{rest.join(' ')}</span>
+        </span>
+        {role && <span className="mt-1.5 block text-[0.68rem] uppercase tracking-[0.3em] text-white/75">{role}</span>}
+      </figcaption>
+    </figure>
   );
 }

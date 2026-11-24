@@ -28,7 +28,7 @@ function AnimatedRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
-      {/* Opacity only: transforms here would break the fixed-position light on gold surfaces */}
+      {/* Opacity only: transforms here would break the fixed-position light on lit surfaces */}
       <motion.main
         key={location.pathname}
         initial={{ opacity: 0 }}
@@ -60,7 +60,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <LightProvider>
-        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-full focus:bg-gold-500 focus:px-4 focus:py-2 focus:text-ink-950">
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-full focus:bg-accent-500 focus:px-4 focus:py-2 focus:text-white">
           Skip to content
         </a>
         <ScrollToTop />
