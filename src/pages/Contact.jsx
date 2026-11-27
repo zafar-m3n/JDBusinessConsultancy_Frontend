@@ -25,10 +25,11 @@ function Field({ label, id, error, optional, children }) {
 }
 
 /** Builds the WhatsApp message from the form, e.g. "Hello JD Business Consultancy, I'm Amal. I'd like help with ..." */
-const buildMessage = ({ name, service, message }, pkg) => {
+const buildMessage = ({ name, email, service, message }, pkg) => {
   const lines = [`Hello JD Business Consultancy, I'm ${name.trim()}.`];
   const title = services.find(s => s.slug === service)?.title;
   if (title) lines.push(`I'd like help with ${title}${pkg ? ` (${pkg} package)` : ''}.`);
+  if (email.trim()) lines.push(`You can also reach me at ${email.trim()}.`);
   if (message.trim()) lines.push('', message.trim());
   return lines.join('\n');
 };
@@ -39,6 +40,7 @@ export default function Contact() {
   const pkgName = pkg ? pkg[0].toUpperCase() + pkg.slice(1) : null;
   const [form, setForm] = useState({
     name: '',
+    email: '',
     service: services.some(s => s.slug === params.get('service')) ? params.get('service') : '',
     message: '',
   });
@@ -46,12 +48,15 @@ export default function Contact() {
 
   const nameError = !form.name.trim() && 'Please enter your name';
   const showError = touched && nameError;
+  // Email is optional, but if given it must look like an address
+  const emailError = form.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()) && 'Please enter a valid email address';
+  const showEmailError = touched && emailError;
   const set = k => e => setForm(f => ({ ...f, [k]: e.target.value }));
 
   const send = e => {
     e.preventDefault();
     setTouched(true);
-    if (nameError) return;
+    if (nameError || emailError) return;
     window.open(whatsappLink(buildMessage(form, pkgName)), '_blank', 'noopener,noreferrer');
   };
 
@@ -115,16 +120,30 @@ export default function Contact() {
                     className={inputCls}
                   />
                 </Field>
-                <Field label="Service" id="c-service" optional>
-                  <Select
-                    inputId="c-service"
-                    value={form.service}
-                    onChange={v => setForm(f => ({ ...f, service: v }))}
-                    placeholder="Not sure yet"
-                    options={[{ value: '', label: 'Not sure yet' }, ...services.map(s => ({ value: s.slug, label: s.title }))]}
+                <Field label="Email" id="c-email" error={showEmailError} optional>
+                  <input
+                    id="c-email"
+                    type="email"
+                    autoComplete="email"
+                    inputMode="email"
+                    value={form.email}
+                    onChange={set('email')}
+                    placeholder="you@company.com"
+                    aria-invalid={!!showEmailError}
+                    aria-describedby={showEmailError ? 'c-email-err' : undefined}
+                    className={inputCls}
                   />
                 </Field>
               </div>
+              <Field label="Service" id="c-service" optional>
+                <Select
+                  inputId="c-service"
+                  value={form.service}
+                  onChange={v => setForm(f => ({ ...f, service: v }))}
+                  placeholder="Not sure yet"
+                  options={[{ value: '', label: 'Not sure yet' }, ...services.map(s => ({ value: s.slug, label: s.title }))]}
+                />
+              </Field>
               <Field label="Message" id="c-msg" optional>
                 <textarea
                   id="c-msg"

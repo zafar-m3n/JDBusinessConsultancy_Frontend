@@ -16,7 +16,8 @@ const classNames = {
     `text-silver-400 transition-transform duration-300 ${selectProps.menuIsOpen ? 'rotate-180 text-accent-500' : ''}`,
   menu: () =>
     'right-0 mt-2 !w-[max(100%,300px)] overflow-hidden rounded-xl border border-line bg-white p-1.5 shadow-[0_24px_50px_-20px_rgba(18,18,18,0.3)]',
-  menuList: () => 'space-y-0.5',
+  // Still scrolls (wheel, touch, keyboard); only the scrollbar itself is hidden
+  menuList: () => 'space-y-0.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
   option: ({ isFocused, isSelected }) =>
     `cursor-pointer whitespace-nowrap rounded-lg px-3.5 py-2.5 font-display text-[15px] transition-colors ${
       isSelected ? 'text-accent-600' : 'text-silver-200'
